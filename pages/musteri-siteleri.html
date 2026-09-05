@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZiftStudio — Müşteri Siteleri</title>
+    <meta
+      name="description"
+      content="ZiftStudio müşterileri için hazırlanan web siteleri ve dijital platformlar."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://ziftstudio.site/pages/musteri-siteleri.html" />
+    <link rel="alternate" hreflang="tr-TR" href="https://ziftstudio.site/pages/musteri-siteleri.html" />
+    <link rel="icon" type="image/png" href="../assets/logos/ziftstudio/ziftstudio-logo-1.png" />
+    <link rel="apple-touch-icon" href="../assets/logos/ziftstudio/ziftstudio-logo-1.png" />
+    <link rel="stylesheet" href="../CSS/style.css" />
+  </head>
+
+  <body>
+    <div class="loader-overlay" id="loaderOverlay">
+      <div class="loader-wrapper">
+        <div class="loader-letter">Z</div>
+        <div class="loader-letter">S</div>
+      </div>
+      <div class="loader-progress-bar">
+        <div class="loader-progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressBarFill"></div>
+    </div>
+
+    <div class="page-wrapper">
+      <nav id="navbar">
+        <a href="../index.html" class="logo">
+          <img
+            src="../assets/logos/ziftstudio/ziftstudio-logo-1.png"
+            alt="ZiftStudio Logo"
+            class="logo-mark"
+          />
+          Zift<span>Studio</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../index.html#hero">Giriş</a></li>
+          <li><a href="../index.html#pricing">Paketler</a></li>
+          <li><a href="../index.html#about">Hakkımızda</a></li>
+          <li><a href="projeler.html#projects">Projeler</a></li>
+          <li><a href="../index.html#technologies">Teknolojiler</a></li>
+          <li><a href="../index.html#success">Görüşler</a></li>
+          <li><a href="yazı.html">Blog</a></li>
+          <li><a href="../index.html#contact">İletişim</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle-nav"
+            id="themeToggle"
+            aria-label="Temayı Değiştir"
+          >
+            <span id="themeToggleIcon">🌙</span>
+          </button>
+          <a href="terminal.html" class="nav-cta">Terminal</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menüyü aç">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+
+      <div class="mobile-nav" id="mobileNav">
+        <a href="../index.html#hero" onclick="closeMobileNav()">Giriş</a>
+        <a href="../index.html#pricing" onclick="closeMobileNav()">Paketler</a>
+        <a href="../index.html#about" onclick="closeMobileNav()">Hakkımızda</a>
+        <a href="projeler.html#projects" onclick="closeMobileNav()">Projeler</a>
+        <a href="../index.html#technologies" onclick="closeMobileNav()">Teknolojiler</a>
+        <a href="../index.html#success" onclick="closeMobileNav()">Görüşler</a>
+        <a href="yazı.html" onclick="closeMobileNav()">Blog</a>
+        <a href="../index.html#contact" onclick="closeMobileNav()">İletişim</a>
+      </div>
+
+      <main>
+        <section id="projects">
+          <div class="projects-header reveal">
+            <div>
+              <div class="section-label">Referanslar</div>
+              <h1 class="section-title">Müşteri <em>Siteleri</em></h1>
+              <p class="qr-header-desc">
+                Topluluklardan e-ticaret platformlarına, farklı ihtiyaçlar için
+                geliştirdiğimiz web projeleri.
+              </p>
+            </div>
+            <div class="project-category-links">
+              <a href="projeler.html#projects" class="view-all">Kategorilere Dön →</a>
+              <a href="qr-menu.html" class="view-all">QR Menü Hizmetleri →</a>
+              <a href="saas.html" class="view-all">SaaS Araçları →</a>
+            </div>
+          </div>
+
+          <div class="projects-grid">
+            <!-- KonParlamento.org -->
+            <div class="showcase-card reveal" onclick="openModal(0)">
+              <div class="showcase-card-visual">
+                <img src="../assets/image/musteri-thumb.jpg" alt="KonParlamento.org — Katılım Platformu" class="showcase-card-img" />
+              </div>
+              <div class="showcase-card-body">
+                <div class="showcase-card-num">001</div>
+                <h3 class="showcase-card-title">KonParlamento.org — Katılım Platformu</h3>
+                <p class="showcase-card-desc">
+                  Yurttaş katılımını dijital ortama taşıyan, fikir paylaşımı ve yönetim etkileşimini sade bir deneyimle buluşturan web sitesi.
+                </p>
+                <div class="showcase-card-tags">
+                  <span class="showcase-card-tag">Web</span>
+                  <span class="showcase-card-tag">CMS</span>
+                  <span class="showcase-card-tag">Topluluk</span>
+                </div>
+                <div class="showcase-card-action">Detayları İncele →</div>
+              </div>
+            </div>
+
+            <!-- KaratayGençMeclis.org -->
+            <div class="showcase-card reveal" onclick="openModal(1)">
+              <div class="showcase-card-visual">
+                <img src="../assets/image/musteri-thumb.jpg" alt="KaratayGençMeclis.org — Gençlik Ağı" class="showcase-card-img" />
+              </div>
+              <div class="showcase-card-body">
+                <div class="showcase-card-num">002</div>
+                <h3 class="showcase-card-title">KaratayGençMeclis.org — Gençlik Ağı</h3>
+                <p class="showcase-card-desc">
+                  Gençlerin fikirlerini paylaşabildiği, etkinliklerini duyurabildiği ve yerel politika sürecine katılabildiği gençlik meclisi sitesi.
+                </p>
+                <div class="showcase-card-tags">
+                  <span class="showcase-card-tag">Community</span>
+                  <span class="showcase-card-tag">Student</span>
+                  <span class="showcase-card-tag">Etkinlik</span>
+                </div>
+                <div class="showcase-card-action">Detayları İncele →</div>
+              </div>
+            </div>
+
+            <!-- EmirHanTazegul.site -->
+            <div class="showcase-card reveal" onclick="openModal(2)">
+              <div class="showcase-card-visual">
+                <img src="../assets/image/hero-avatar.jpg" alt="EmirHanTazegul.site — Kişisel Marka" class="showcase-card-img" />
+              </div>
+              <div class="showcase-card-body">
+                <div class="showcase-card-num">003</div>
+                <h3 class="showcase-card-title">EmirHanTazegul.site — Kişisel Marka</h3>
+                <p class="showcase-card-desc">
+                  Kişisel portföy ve marka kimliğini dijitalde etkili şekilde sunan tasarım odaklı web sitesi.
+                </p>
+                <div class="showcase-card-tags">
+                  <span class="showcase-card-tag">Portfolio</span>
+                  <span class="showcase-card-tag">Branding</span>
+                  <span class="showcase-card-tag">SEO</span>
+                </div>
+                <div class="showcase-card-action">Detayları İncele →</div>
+              </div>
+            </div>
+
+            <!-- Hukuk Bürosu -->
+            <div class="showcase-card reveal" onclick="openModal(8)">
+              <div class="showcase-card-visual">
+                <img src="../assets/image/musteri-thumb.jpg" alt="Hukuk Bürosu — Kurumsal Danışmanlık" class="showcase-card-img" />
+              </div>
+              <div class="showcase-card-body">
+                <div class="showcase-card-num">004</div>
+                <h3 class="showcase-card-title">Hukuk Bürosu — Kurumsal Danışmanlık</h3>
+                <p class="showcase-card-desc">
+                  Bireysel ve kurumsal müvekkillere hukuki danışmanlık hizmeti, çalışma alanları ve randevu altyapısı sunan web platformu.
+                </p>
+                <div class="showcase-card-tags">
+                  <span class="showcase-card-tag">HTML5</span>
+                  <span class="showcase-card-tag">EmailJS</span>
+                  <span class="showcase-card-tag">SEO</span>
+                </div>
+                <div class="showcase-card-action">Detayları İncele →</div>
+              </div>
+            </div>
+
+            <!-- 3D STL & Printing Solutions -->
+            <div class="showcase-card reveal" onclick="openModal(9)">
+              <div class="showcase-card-visual">
+                <img src="../assets/image/saas-thumb.jpg" alt="3D STL & Printing Solutions — Tasarım Portalı" class="showcase-card-img" />
+              </div>
+              <div class="showcase-card-body">
+                <div class="showcase-card-num">005</div>
+                <h3 class="showcase-card-title">3D STL & Printing Solutions — Tasarım Portalı</h3>
+                <p class="showcase-card-desc">
+                  3D STL modelleri, filament, reçine ürünleri ve e-ticaret sepet yönetimi sunan 3D baskı çözümleri platformu.
+                </p>
+                <div class="showcase-card-tags">
+                  <span class="showcase-card-tag">E-Ticaret</span>
+                  <span class="showcase-card-tag">STL Katalog</span>
+                  <span class="showcase-card-tag">3D Printing</span>
+                </div>
+                <div class="showcase-card-action">Detayları İncele →</div>
+              </div>
+            </div>
+
+            <!-- Kuruyemişçim -->
+            <div class="showcase-card reveal" onclick="openModal(10)">
+              <div class="showcase-card-visual">
+                <img src="../assets/image/musteri-thumb.jpg" alt="Kuruyemişçim & Organik Ürünler — E-Ticaret" class="showcase-card-img" />
+              </div>
+              <div class="showcase-card-body">
+                <div class="showcase-card-num">006</div>
+                <h3 class="showcase-card-title">Kuruyemişçim & Organik Ürünler — E-Ticaret</h3>
+                <p class="showcase-card-desc">
+                  Taze kavrulmuş kuruyemişler, doğal besinler, WhatsApp hızlı sipariş ve kargo takibi sunan e-ticaret uygulaması.
+                </p>
+                <div class="showcase-card-tags">
+                  <span class="showcase-card-tag">Web App</span>
+                  <span class="showcase-card-tag">WhatsApp API</span>
+                  <span class="showcase-card-tag">E-Ticaret</span>
+                </div>
+                <div class="showcase-card-action">Detayları İncele →</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-copy">
+          © 2025 ZiftStudio Digital. Tüm hakları saklıdır.
+        </div>
+        <ul class="footer-links">
+          <li><a href="gizlilik.html">Gizlilik</a></li>
+          <li><a href="gizlilik.html">Kullanım Şartları</a></li>
+          <li><a href="../index.html#contact">İletişim</a></li>
+          <li>
+            <a
+              href="terminal.html"
+              class="footer-terminal-link"
+              title="ZiftStudio Geliştirici Konsolu"
+            >
+              >_
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+
+    <div
+      class="modal-overlay"
+      id="modalOverlay"
+      onclick="closeModalOutside(event)"
+    >
+      <div class="modal" id="modal">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <script src="../JS/script.js" defer></script>
+  </body>
+</html>

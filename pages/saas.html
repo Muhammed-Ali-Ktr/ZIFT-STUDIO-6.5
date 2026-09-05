@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZiftStudio — SaaS Araçları</title>
+    <meta
+      name="description"
+      content="ZiftStudio tarafından geliştirilen SaaS araçları ve dijital ürünler: CafeAroma, QRMenu, Sınav Sayacı, QR Kod Oluşturucu ve Flip Clock."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://ziftstudio.site/pages/saas.html" />
+    <link rel="alternate" hreflang="tr-TR" href="https://ziftstudio.site/pages/saas.html" />
+    <link rel="icon" type="image/png" href="../assets/logos/ziftstudio/ziftstudio-logo-1.png" />
+    <link rel="apple-touch-icon" href="../assets/logos/ziftstudio/ziftstudio-logo-1.png" />
+    <link rel="stylesheet" href="../CSS/style.css" />
+  </head>
+
+  <body>
+    <div class="loader-overlay" id="loaderOverlay">
+      <div class="loader-wrapper">
+        <div class="loader-letter">Z</div>
+        <div class="loader-letter">S</div>
+      </div>
+      <div class="loader-progress-bar">
+        <div class="loader-progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressBarFill"></div>
+    </div>
+
+    <div class="page-wrapper">
+      <nav id="navbar">
+        <a href="../index.html" class="logo">
+          <img
+            src="../assets/logos/ziftstudio/ziftstudio-logo-1.png"
+            alt="ZiftStudio Logo"
+            class="logo-mark"
+          />
+          Zift<span>Studio</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../index.html#hero">Giriş</a></li>
+          <li><a href="../index.html#pricing">Paketler</a></li>
+          <li><a href="../index.html#about">Hakkımızda</a></li>
+          <li><a href="projeler.html#projects">Projeler</a></li>
+          <li><a href="../index.html#technologies">Teknolojiler</a></li>
+          <li><a href="../index.html#success">Görüşler</a></li>
+          <li><a href="yazı.html">Blog</a></li>
+          <li><a href="../index.html#contact">İletişim</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle-nav"
+            id="themeToggle"
+            aria-label="Temayı Değiştir"
+          >
+            <span id="themeToggleIcon">🌙</span>
+          </button>
+          <a href="terminal.html" class="nav-cta">Terminal</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menüyü aç">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+
+      <div class="mobile-nav" id="mobileNav">
+        <a href="../index.html#hero" onclick="closeMobileNav()">Giriş</a>
+        <a href="../index.html#pricing" onclick="closeMobileNav()">Paketler</a>
+        <a href="../index.html#about" onclick="closeMobileNav()">Hakkımızda</a>
+        <a href="projeler.html#projects" onclick="closeMobileNav()">Projeler</a>
+        <a href="../index.html#technologies" onclick="closeMobileNav()">Teknolojiler</a>
+        <a href="../index.html#success" onclick="closeMobileNav()">Görüşler</a>
+        <a href="yazı.html" onclick="closeMobileNav()">Blog</a>
+        <a href="../index.html#contact" onclick="closeMobileNav()">İletişim</a>
+      </div>
+
+      <main>
+        <section id="projects">
+          <div class="projects-header reveal">
+            <div>
+              <div class="section-label">Dijital Ürünler</div>
+              <h1 class="section-title">SaaS <em>Araçlarımız</em></h1>
+              <p class="qr-header-desc">
+                Günlük ihtiyaçlara odaklanan, hızlı ve kullanışlı dijital
+                araçlar.
+              </p>
+            </div>
+            <div class="project-category-links">
+              <a href="projeler.html#projects" class="view-all">Kategorilere Dön →</a>
+              <a href="qr-menu.html" class="view-all">QR Menü Hizmetleri →</a>
+              <a href="musteri-siteleri.html" class="view-all">Müşteri Siteleri →</a>
+            </div>
+          </div>
+
+          <div class="projects-grid">
+            <!-- CafeAroma -->
+            <div class="showcase-card reveal" onclick="openModal(3)">
+              <div class="showcase-card-visual">
+                <img src="../assets/image/cafearoma-thumb.jpg" alt="CafeAroma — Café Deneyimi" class="showcase-card-img" />
+              </div>
+              <div class="showcase-card-body">
+                <div class="showcase-card-num">001</div>
+                <h3 class="showcase-card-title">CafeAroma — Café Deneyimi</h3>
+                <p class="showcase-card-desc">
+                  Kafe atmosferini dijitalleştiren, menü ve rezervasyon akışını şık bir arayüzde sunan marka web sitesi.
+                </p>
+                <div class="showcase-card-tags">
+                  <span class="showcase-card-tag">Cafe</span>
+                  <span class="showcase-card-tag">Menu</span>
+                  <span class="showcase-card-tag">Rezervasyon</span>
+                </div>
+                <div class="showcase-card-action">Detayları İncele →</div>
+              </div>
+            </div>
+
+            <!-- QRMenu -->
+            <div class="showcase-card reveal" onclick="openModal(4)">
+              <div class="showcase-card-visual">
+                <img src="../assets/image/qr-menu-thumb.jpg" alt="QRMenu — QR Menü Sistemi" class="showcase-card-img" />
+              </div>
+              <div class="showcase-card-body">
+                <div class="showcase-card-num">002</div>
+                <h3 class="showcase-card-title">QRMenu — QR Menü Sistemi</h3>
+                <p class="showcase-card-desc">
+                  Restoranlarda QR kodlu menü ve sipariş akışını basit, hızlı ve modern bir kullanıcı deneyimiyle sağlayan sistem.
+                </p>
+                <div class="showcase-card-tags">
+                  <span class="showcase-card-tag">QR Code</span>
+                  <span class="showcase-card-tag">Mobile</span>
+                  <span class="showcase-card-tag">UI/UX</span>
+                </div>
+                <div class="showcase-card-action">Detayları İncele →</div>
+              </div>
+            </div>
+
+            <!-- Sınav Sayacı -->
+            <div class="showcase-card reveal" onclick="openModal(5)">
+              <div class="showcase-card-visual">
+                <img src="../assets/image/sinavsayac-thumb.jpg" alt="Sınav Sayacı — Geri Sayım Uygulaması" class="showcase-card-img" />
+              </div>
+              <div class="showcase-card-body">
+                <div class="showcase-card-num">003</div>
+                <h3 class="showcase-card-title">Sınav Sayacı — Geri Sayım Uygulaması</h3>
+                <p class="showcase-card-desc">
+                  Öğrencilerin YKS, LGS ve önemli sınav tarihlerini anlık takip etmesini sağlayan, özelleştirilebilir geri sayım aracı.
+                </p>
+                <div class="showcase-card-tags">
+                  <span class="showcase-card-tag">JavaScript</span>
+                  <span class="showcase-card-tag">Sayaç</span>
+                  <span class="showcase-card-tag">LocalStorage</span>
+                </div>
+                <div class="showcase-card-action">Detayları İncele →</div>
+              </div>
+            </div>
+
+            <!-- QR Kod Oluşturucu -->
+            <div class="showcase-card reveal" onclick="openModal(6)">
+              <div class="showcase-card-visual">
+                <img src="../assets/image/qrcodegen-thumb.jpg" alt="QR Kod Oluşturucu — Dinamik QR Jeneratörü" class="showcase-card-img" />
+              </div>
+              <div class="showcase-card-body">
+                <div class="showcase-card-num">004</div>
+                <h3 class="showcase-card-title">QR Kod Oluşturucu — Dinamik QR Jeneratörü</h3>
+                <p class="showcase-card-desc">
+                  Metin, URL ve iletişim bilgileri için anında yüksek çözünürlüklü ve özelleştirilebilir QR kodlar oluşturan araç.
+                </p>
+                <div class="showcase-card-tags">
+                  <span class="showcase-card-tag">JavaScript</span>
+                  <span class="showcase-card-tag">QR Engine</span>
+                  <span class="showcase-card-tag">Canvas</span>
+                </div>
+                <div class="showcase-card-action">Detayları İncele →</div>
+              </div>
+            </div>
+
+            <!-- Flip Clock -->
+            <div class="showcase-card reveal" onclick="openModal(7)">
+              <div class="showcase-card-visual">
+                <img src="../assets/image/flipclock-thumb.jpg" alt="Flip Clock — Özelleştirilebilir Dijital Saat" class="showcase-card-img" />
+              </div>
+              <div class="showcase-card-body">
+                <div class="showcase-card-num">005</div>
+                <h3 class="showcase-card-title">Flip Clock — Özelleştirilebilir Dijital Saat</h3>
+                <p class="showcase-card-desc">
+                  Estetik flip-card animasyonlarıyla zamanı takip etmeyi sağlayan, modern masaüstü ve mobil uyumlu dijital saat.
+                </p>
+                <div class="showcase-card-tags">
+                  <span class="showcase-card-tag">CSS3</span>
+                  <span class="showcase-card-tag">JavaScript</span>
+                  <span class="showcase-card-tag">Retro Clock</span>
+                </div>
+                <div class="showcase-card-action">Detayları İncele →</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-copy">
+          © 2025 ZiftStudio Digital. Tüm hakları saklıdır.
+        </div>
+        <ul class="footer-links">
+          <li><a href="gizlilik.html">Gizlilik</a></li>
+          <li><a href="gizlilik.html">Kullanım Şartları</a></li>
+          <li><a href="../index.html#contact">İletişim</a></li>
+          <li>
+            <a
+              href="terminal.html"
+              class="footer-terminal-link"
+              title="ZiftStudio Geliştirici Konsolu"
+            >
+              >_
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+
+    <div
+      class="modal-overlay"
+      id="modalOverlay"
+      onclick="closeModalOutside(event)"
+    >
+      <div class="modal" id="modal">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <script src="../JS/script.js" defer></script>
+  </body>
+</html>

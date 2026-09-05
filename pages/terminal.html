@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZiftStudio — Geliştirici Konsolu</title>
+  <link rel="icon" type="image/png" href="../assets/logos/ziftstudio/ziftstudio-logo-1.png">
+  <link rel="apple-touch-icon" href="../assets/logos/ziftstudio/ziftstudio-logo-1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-body: #0a0a0c;
+      --bg-term: #121215;
+      --bg-header: #18181d;
+      --border-color: rgba(255, 255, 255, 0.08);
+      
+      --accent: #ff9f1c;        /* Warm Amber/Orange */
+      --accent-dim: #b8710f;
+      --accent-glow: rgba(255, 159, 28, 0.25);
+      
+      --text-main: #e2e8f0;
+      --text-dim: #64748b;
+      --text-sub: #94a3b8;
+      
+      --green: #22c55e;
+      --cyan: #06b6d4;
+      --purple: #a855f7;
+      --red: #ef4444;
+      --yellow: #facc15;
+      --blue: #3b82f6;
+    }
+
+    [data-theme="green"] {
+      --accent: #22c55e;
+      --accent-dim: #15803d;
+      --accent-glow: rgba(34, 197, 94, 0.25);
+    }
+
+    [data-theme="dracula"] {
+      --bg-term: #1e1f29;
+      --bg-header: #282a36;
+      --accent: #ff79c6;
+      --accent-dim: #bd93f9;
+      --accent-glow: rgba(255, 121, 198, 0.25);
+    }
+
+    [data-theme="cyan"] {
+      --accent: #00f0ff;
+      --accent-dim: #0284c7;
+      --accent-glow: rgba(0, 240, 255, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Background Glow */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 400px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, rgba(0,0,0,0) 70%);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+      transition: background 0.4s ease;
+    }
+
+    /* Terminal Container */
+    .terminal-window {
+      width: 100%;
+      max-width: 1050px;
+      height: 88vh;
+      height: 88dvh;
+      min-height: 540px;
+      background-color: var(--bg-term);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(16px);
+    }
+
+    /* Top Mac Header Bar */
+    .terminal-header {
+      background-color: var(--bg-header);
+      padding: 0.75rem 1.25rem;
+      display: grid;
+      grid-template-columns: 80px 1fr 80px;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      user-select: none;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .window-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+
+    .window-dot:hover {
+      transform: scale(1.15);
+      opacity: 0.9;
+    }
+
+    .window-dot.close { background-color: #ff5f56; }
+    .window-dot.minimize { background-color: #ffbd2e; }
+    .window-dot.maximize { background-color: #27c93f; }
+
+    .terminal-title {
+      text-align: center;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .header-icon-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 4px;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .header-icon-btn:hover {
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Terminal Body Content */
+    .terminal-body {
+      flex: 1;
+      padding: 1.5rem 1.75rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      position: relative;
+    }
+
+    /* Custom Scrollbar */
+    .terminal-body::-webkit-scrollbar {
+      width: 6px;
+    }
+    .terminal-body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .terminal-body::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 3px;
+    }
+    .terminal-body::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* ASCII Header & Resume Header */
+    .banner-wrapper {
+      margin-bottom: 0.5rem;
+    }
+
+    .ascii-banner {
+      color: var(--accent);
+      font-size: clamp(8px, 1.25vw, 12px);
+      line-height: 1.15;
+      font-weight: bold;
+      white-space: pre;
+      overflow-x: auto;
+      user-select: none;
+      text-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .banner-divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin: 0.85rem 0 0.65rem 0;
+    }
+
+    .banner-subtitle {
+      text-align: center;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+    }
+
+    .banner-subtitle em {
+      color: var(--text-main);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .banner-instructions {
+      margin-top: 0.75rem;
+      color: var(--text-dim);
+      font-size: 0.83rem;
+      line-height: 1.6;
+    }
+
+    .banner-instructions .cmd-hint {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .banner-instructions .key-hint {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Output Lines */
+    .output-line {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .output-line.system-msg {
+      color: var(--text-sub);
+    }
+
+    .output-line.success-msg {
+      color: var(--green);
+    }
+
+    .output-line.error-msg {
+      color: var(--red);
+    }
+
+    .output-line.info-msg {
+      color: var(--accent);
+    }
+
+    /* Help Table Layout */
+    .command-table {
+      display: grid;
+      grid-template-columns: minmax(160px, 220px) 1fr;
+      gap: 0.45rem 1rem;
+      margin: 0.5rem 0;
+      padding: 0.5rem 0;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .cmd-name {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .cmd-desc {
+      color: var(--text-sub);
+    }
+
+    /* Project Cards in CLI */
+    .project-cli-item {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .project-cli-num {
+      color: var(--accent);
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    .project-cli-title {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+    .project-cli-tech {
+      color: var(--cyan);
+      font-size: 0.82rem;
+      margin-left: 2rem;
+    }
+    .project-cli-link {
+      color: var(--blue);
+      text-decoration: underline;
+      font-size: 0.82rem;
+      margin-left: 0.5rem;
+    }
+
+    /* Active Prompt & Input Line */
+    .prompt-line {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 0.35rem;
+    }
+
+    .prompt-symbol {
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.1rem;
+      user-select: none;
+      text-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    .prompt-path {
+      color: var(--cyan);
+      font-size: 0.85rem;
+      user-select: none;
+    }
+
+    .cmd-input {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      flex: 1;
+      width: 100%;
+      caret-color: var(--accent);
+    }
+
+    /* Autocomplete Suggestions */
+    .autocomplete-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.25rem;
+      padding: 0.4rem 0;
+    }
+
+    .autocomplete-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .autocomplete-item:hover {
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+    }
+
+    /* Canvas (Matrix & Snake) */
+    #matrixCanvas {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0;
+      opacity: 0.2;
+      pointer-events: none;
+      display: none;
+    }
+
+    .snake-box {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 0.75rem 0;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      max-width: 360px;
+    }
+
+    #gameCanvas {
+      background: #000;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+    }
+
+    .snake-touch-controls {
+      display: grid;
+      grid-template-columns: repeat(3, 46px);
+      grid-template-rows: repeat(2, 40px);
+      gap: 6px;
+    }
+
+    .snake-touch-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-main);
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+
+    .snake-touch-btn:active {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        padding: 0.5rem;
+      }
+      .terminal-window {
+        height: 96vh;
+        height: 96dvh;
+        min-height: auto;
+        border-radius: 8px;
+      }
+      .terminal-header {
+        padding: 0.6rem 0.85rem;
+        grid-template-columns: 60px 1fr 60px;
+      }
+      .terminal-body {
+        padding: 1rem;
+      }
+      .command-table {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+      }
+      .banner-subtitle {
+        font-size: 0.78rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="terminal-window" id="terminalWindow">
+    <!-- Top Bar -->
+    <div class="terminal-header">
+      <div class="window-dots">
+        <span class="window-dot close" title="Ana Sayfaya Dön" onclick="exitToHome()"></span>
+        <span class="window-dot minimize" title="Ekranı Temizle" onclick="handleCommand('clear')"></span>
+        <span class="window-dot maximize" title="Matrix Efekti" onclick="handleCommand('matrix')"></span>
+      </div>
+      <div class="terminal-title">ziftstudio@developer-console: ~/terminal</div>
+      <div class="header-actions">
+        <button class="header-icon-btn" title="Tema Değiştir" onclick="cycleTheme()">🎨</button>
+        <button class="header-icon-btn" title="Ana Sayfa" onclick="exitToHome()">🏠</button>
+      </div>
+    </div>
+    
+    <!-- Terminal Main Body -->
+    <div class="terminal-body" id="terminalBody">
+      <canvas id="matrixCanvas"></canvas>
+      
+      <!-- ASCII & Intro Banner -->
+      <div class="banner-wrapper">
+        <pre class="ascii-banner">
+███████╗██╗███████╗████████╗   ███████╗████████╗██╗   ██╗██████╗ ██╗ ██████╗ 
+╚══███╔╝██║██╔════╝╚══██╔══╝   ██╔════╝╚══██╔══╝██║   ██║██╔══██╗██║██╔═══██╗
+  ███╔╝ ██║█████╗     ██║      ███████╗   ██║   ██║   ██║██║  ██║██║██║   ██║
+ ███╔╝  ██║██╔══╝     ██║      ╚════██║   ██║   ██║   ██║██║  ██║██║██║   ██║
+███████╗██║██║        ██║      ███████║   ██║   ╚██████╔╝██████╔╝██║╚██████╔╝
+╚══════╝╚═╝╚═╝        ╚═╝      ╚══════╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝ </pre>
+
+        <hr class="banner-divider">
+        <div class="banner-subtitle">
+          Interactive Terminal Portfolio &amp; Developer Console<br>
+          <em>Software Studio</em> • <em>Full-Stack Web</em> • <em>SaaS</em> • <em>Cloud Architecture</em>
+        </div>
+        <hr class="banner-divider">
+
+        <div class="banner-instructions">
+          Type '<span class="cmd-hint">help</span>' to see available commands<br>
+          Press '<span class="key-hint">tab</span>' to auto-complete commands
+        </div>
+      </div>
+      
+      <!-- Dynamic Output Container -->
+      <div id="outputContainer"></div>
+
+      <!-- Snake Game Area -->
+      <div class="snake-box" id="snakeBox">
+        <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600;">🐍 Retro Snake — Skor: <span id="snakeScore">0</span></div>
+        <canvas id="gameCanvas" width="280" height="280"></canvas>
+        <div class="snake-touch-controls">
+          <div></div>
+          <button class="snake-touch-btn" onclick="setSnakeDir(0, -10)">▲</button>
+          <div></div>
+          <button class="snake-touch-btn" onclick="setSnakeDir(-10, 0)">◀</button>
+          <button class="snake-touch-btn" onclick="setSnakeDir(0, 10)">▼</button>
+          <button class="snake-touch-btn" onclick="setSnakeDir(10, 0)">▶</button>
+        </div>
+        <div style="font-size: 0.75rem; color: var(--text-dim);">Klavye ok tuşlarıyla veya butonlarla kontrol edin.</div>
+      </div>
+
+      <!-- Prompt Input Line -->
+      <div class="prompt-line" id="promptLine">
+        <span class="prompt-symbol">➜</span>
+        <span class="prompt-path">~</span>
+        <input type="text" id="cmdInput" class="cmd-input" autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const outputContainer = document.getElementById('outputContainer');
+    const cmdInput = document.getElementById('cmdInput');
+    const terminalBody = document.getElementById('terminalBody');
+    const matrixCanvas = document.getElementById('matrixCanvas');
+    const gameCanvas = document.getElementById('gameCanvas');
+    const snakeBox = document.getElementById('snakeBox');
+    const snakeScoreEl = document.getElementById('snakeScore');
+    const ctxMatrix = matrixCanvas.getContext('2d');
+    const ctxGame = gameCanvas.getContext('2d');
+
+    // Available CLI commands list
+    const availableCommands = [
+      'help', 'about', 'projects', 'skills', 'prices', 'contact', 
+      'clear', 'matrix', 'snake', 'theme', 'whoami', 'ls', 'pwd', 
+      'cat', 'date', 'ping', 'exit', 'qr-menu', 'saas', 'randevu', 'blog'
+    ];
+
+    // Shell History
+    const history = [];
+    let historyIndex = -1;
+
+    // Theme switching
+    const themes = ['amber', 'green', 'dracula', 'cyan'];
+    let themeIdx = 0;
+    function cycleTheme(specific) {
+      if (specific && themes.includes(specific)) {
+        themeIdx = themes.indexOf(specific);
+      } else {
+        themeIdx = (themeIdx + 1) % themes.length;
+      }
+      const chosen = themes[themeIdx];
+      if (chosen === 'amber') {
+        document.body.removeAttribute('data-theme');
+      } else {
+        document.body.setAttribute('data-theme', chosen);
+      }
+      printLine(`Tema değiştirildi: <span style="color:var(--accent); font-weight:bold;">${chosen.toUpperCase()}</span>`, 'info');
+    }
+
+    function exitToHome() {
+      printLine("Geliştirici konsolundan çıkılıyor, ana sayfaya yönlendiriliyorsunuz...", "info");
+      setTimeout(() => {
+        window.location.href = '../index.html';
+      }, 350);
+    }
+
+    // Projects Database
+    const projectsList = [
+      { num: '001', name: 'KonParlamento.org', desc: 'Katılım Platformu & Topluluk Portalı', tech: 'React, CMS, SEO' },
+      { num: '002', name: 'KaratayGençMeclis.org', desc: 'Gençlik Ağı & Etkinlik Yönetimi', tech: 'React, Events, Mobile' },
+      { num: '003', name: 'EmirHanTazegul.site', desc: 'Kişisel Marka & Portföy Sitesi', tech: 'Branding, Responsive, SEO' },
+      { num: '004', name: 'CafeAroma', desc: 'Café Deneyimi & QR Menü Entegrasyonu', tech: 'Cafe, Reservation, UI/UX' },
+      { num: '005', name: 'QRMenu', desc: 'Restoranlar için Temassız Menü & Sipariş', tech: 'QR Engine, Mobile UX' },
+      { num: '006', name: 'Sınav Sayacı', desc: 'YKS / LGS Geri Sayım & Takip Aracı', tech: 'JavaScript, LocalStorage' },
+      { num: '007', name: 'QR Kod Oluşturucu', desc: 'Dinamik & Özelleştirilebilir QR Jeneratörü', tech: 'Canvas, QR Engine' },
+      { num: '008', name: 'Flip Clock', desc: 'Retro Dijital Masaüstü & Web Saati', tech: 'CSS3 Animation, JavaScript' },
+      { num: '009', name: 'Hukuk Bürosu', desc: 'Kurumsal Danışmanlık & Randevu Portalı', tech: 'HTML5, CSS3, EmailJS' },
+      { num: '010', name: '3D STL Platform', desc: '3D Baskı Çözümleri & Tasarım Kataloğu', tech: 'E-Ticaret UI, STL Katalog' },
+      { num: '011', name: 'Kuruyemişçim', desc: 'Organik Ürünler & WhatsApp Hızlı Sipariş', tech: 'Web App, WhatsApp API' }
+    ];
+
+    // Mock Files for 'cat' and 'ls'
+    const virtualFiles = {
+      'index.html': `<!-- ZiftStudio Home Page -->\n<h1>Dijital Deneyimler İnşa Ediyoruz.</h1>`,
+      'about.txt': `ZiftStudio: Startup'lardan kurumsal markalara modern yazılım çözümleri.`,
+      'stack.json': `{\n  "frontend": ["React", "Next.js", "TypeScript", "Tailwind"],\n  "backend": ["Node.js", "Python", "FastAPI", "PostgreSQL"]\n}`,
+      'contact.cfg': `email = "muhammedalikitir.tr@gmail.com"\nphone = "+90 542 478 6254"`
+    };
+
+    // Keyboard Handler
+    cmdInput.addEventListener('keydown', (e) => {
+      // Tab Autocomplete
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        handleTabComplete();
+        return;
+      }
+
+      // Enter Command Execution
+      if (e.key === 'Enter') {
+        const val = cmdInput.value.trim();
+        cmdInput.value = '';
+        if (val) {
+          history.push(val);
+          historyIndex = history.length;
+          handleCommand(val);
+        }
+      } else if (e.key === 'ArrowUp') {
+        if (historyIndex > 0) {
+          historyIndex--;
+          cmdInput.value = history[historyIndex];
+        } else if (historyIndex === 0) {
+          cmdInput.value = history[0];
+        }
+        e.preventDefault();
+      } else if (e.key === 'ArrowDown') {
+        if (historyIndex < history.length - 1) {
+          historyIndex++;
+          cmdInput.value = history[historyIndex];
+        } else {
+          historyIndex = history.length;
+          cmdInput.value = '';
+        }
+        e.preventDefault();
+      }
+    });
+
+    // Tab Completion Logic
+    function handleTabComplete() {
+      const inputVal = cmdInput.value.trim().toLowerCase();
+      if (!inputVal) {
+        showSuggestions(availableCommands);
+        return;
+      }
+
+      const matches = availableCommands.filter(c => c.startsWith(inputVal));
+      if (matches.length === 1) {
+        cmdInput.value = matches[0];
+      } else if (matches.length > 1) {
+        showSuggestions(matches);
+      }
+    }
+
+    function showSuggestions(list) {
+      const box = document.createElement('div');
+      box.className = 'autocomplete-box';
+      list.forEach(item => {
+        const span = document.createElement('span');
+        span.className = 'autocomplete-item';
+        span.textContent = item;
+        span.onclick = () => {
+          cmdInput.value = item;
+          cmdInput.focus();
+        };
+        box.appendChild(span);
+      });
+      outputContainer.appendChild(box);
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+    }
+
+    function printLine(text, type = 'normal') {
+      const div = document.createElement('div');
+      div.className = `output-line ${type}-msg`;
+      div.innerHTML = text;
+      outputContainer.appendChild(div);
+      setTimeout(() => {
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+      }, 10);
+    }
+
+    function normalizeText(str) {
+      return str.trim()
+        .replace(/İ/g, 'i')
+        .replace(/I/g, 'ı')
+        .toLowerCase()
+        .replace(/ı/g, 'i')
+        .replace(/ğ/g, 'g')
+        .replace(/ü/g, 'u')
+        .replace(/ş/g, 's')
+        .replace(/ö/g, 'o')
+        .replace(/ç/g, 'c');
+    }
+
+    // Main Command Dispatcher
+    function handleCommand(raw) {
+      const trimmed = raw.trim();
+      printLine(`<span style="color:var(--accent);">➜</span> <span style="color:var(--cyan);">~</span> ${trimmed}`);
+      if (!trimmed) return;
+
+      const parts = trimmed.split(/\s+/);
+      const cmd = normalizeText(parts[0]);
+      const arg1 = parts[1] ? parts[1].toLowerCase() : '';
+      const fullArgs = parts.slice(1).join(' ');
+
+      switch(cmd) {
+        case 'help':
+        case 'yardim':
+        case 'h':
+        case '?':
+          showHelp();
+          break;
+        case 'about':
+        case 'hakkinda':
+        case 'bio':
+          showAbout();
+          break;
+        case 'projects':
+        case 'projeler':
+        case 'work':
+          showProjects();
+          break;
+        case 'skills':
+        case 'teknolojiler':
+        case 'stack':
+          showSkills();
+          break;
+        case 'prices':
+        case 'paketler':
+        case 'fiyatlar':
+          showPrices();
+          break;
+        case 'contact':
+        case 'iletisim':
+        case 'email':
+          showContact();
+          break;
+        case 'matrix':
+          toggleMatrix();
+          break;
+        case 'snake':
+        case 'yilan':
+        case 'game':
+          startSnakeGame();
+          break;
+        case 'theme':
+        case 'tema':
+          cycleTheme(arg1);
+          break;
+        case 'ls':
+        case 'dir':
+          showLs();
+          break;
+        case 'cat':
+        case 'read':
+          showCat(arg1);
+          break;
+        case 'pwd':
+          printLine('/home/ziftstudio/developer-console', 'info');
+          break;
+        case 'whoami':
+          printLine('ziftstudio-dev (Muhammed Ali Kıtıl — Lead Full-Stack Architect)', 'success');
+          break;
+        case 'date':
+        case 'time':
+          printLine(`Sistem Zamanı: ${new Date().toLocaleString('tr-TR')}`, 'info');
+          break;
+        case 'ping':
+          showPing();
+          break;
+        case 'clear':
+        case 'cls':
+        case 'temizle':
+          outputContainer.innerHTML = '';
+          matrixCanvas.style.display = 'none';
+          snakeBox.style.display = 'none';
+          isMatrixRunning = false;
+          if (matrixInterval) clearInterval(matrixInterval);
+          isSnakeRunning = false;
+          if (gameInterval) clearInterval(gameInterval);
+          break;
+        case 'qr-menu':
+        case 'qrmenu':
+          navigateTo('qr-menu.html');
+          break;
+        case 'saas':
+          navigateTo('saas.html');
+          break;
+        case 'randevu':
+          navigateTo('randevu.html');
+          break;
+        case 'blog':
+        case 'yazilar':
+        case 'yazi':
+          navigateTo('yazı.html');
+          break;
+        case 'exit':
+        case 'cikis':
+        case 'quit':
+        case 'q':
+          exitToHome();
+          break;
+        default:
+          printLine(`Komut bulunamadı: '<span style="color:var(--accent);">${cmd}</span>'. Kullanılabilir tüm komutlar için '<span style="color:var(--green);">help</span>' yazın.`, 'error');
+      }
+    }
+
+    function showHelp() {
+      let html = `<div style="color:var(--text-main); font-weight:600; margin-bottom:0.4rem;">Kullanılabilir Komutlar:</div>`;
+      html += `<div class="command-table">`;
+      const cmds = [
+        ['about', 'ZiftStudio ve kurucu geliştirici bilgileri.'],
+        ['projects', 'Tamamlanan 11 prestijli proje ve canlı bağlantıları.'],
+        ['skills', 'Kullanılan teknolojiler (Frontend, Backend, Cloud, AI).'],
+        ['prices', 'Web tasarım ve özel yazılım paket fiyatları.'],
+        ['contact', 'İletişim kanalları (E-posta, WhatsApp, LinkedIn).'],
+        ['theme [name]', 'Tema değiştirir (amber, green, dracula, cyan).'],
+        ['matrix', 'Matrix dijital yağmur efektini açar / kapatır.'],
+        ['snake', 'Konsol içi klasik retro yılan oyununu başlatır.'],
+        ['ls / cat [file]', 'Sanal dizindeki dosyaları listeler ve okur.'],
+        ['qr-menu', 'QR Menü yazılım çözümleri sayfasına gider.'],
+        ['randevu', 'Randevu Sistemi paketleri sayfasına gider.'],
+        ['saas', 'SaaS dijital ürünler vitrinine gider.'],
+        ['blog', 'ZiftStudio teknik makalelerine gider.'],
+        ['clear', 'Terminal ekranını temizler.'],
+        ['exit', 'Terminalden çıkıp ana sayfaya döner.']
+      ];
+      cmds.forEach(c => {
+        html += `<div class="cmd-name">${c[0]}</div><div class="cmd-desc">${c[1]}</div>`;
+      });
+      html += `</div>`;
+      printLine(html);
+    }
+
+    function showAbout() {
+      printLine(`
+<span style="color:var(--accent); font-weight:bold;">ZIFTSTUDIO DIGITAL CRAFT &amp; SOFTWARE</span>
+Startup'lardan kurumsal markalara kadar yüksek performanslı web siteleri, SaaS ürünleri, modern UI/UX ve yapay zeka entegrasyonları inşa ediyoruz.
+
+• <strong>Kurucu Geliştirici:</strong> Muhammed Ali Kıtıl
+• <strong>Deneyim:</strong> 3+ Yıl Profesyonel Yazılım Mimarisi
+• <strong>Tamamlanan Projeler:</strong> 40+ Dijital Ürün &amp; Web Platformu
+• <strong>Misyon:</strong> Hızlı, temiz ve ölçeklenebilir kod ile markaları dijitalde zirveye taşımak.
+      `.trim());
+    }
+
+    function showSkills() {
+      printLine(`
+<span style="color:var(--accent); font-weight:bold;">TEKNOLOJİ YETKİNLİKLERİ &amp; STACK</span>
+• <strong style="color:var(--cyan);">Frontend:</strong> React.js, Next.js 14, Vue.js, TypeScript, Tailwind CSS, Vanilla CSS
+• <strong style="color:var(--green);">Backend:</strong> Node.js, Python, FastAPI, Express.js, REST &amp; GraphQL APIs
+• <strong style="color:var(--purple);">Veritabanı:</strong> PostgreSQL, MongoDB, Redis, Supabase, Prisma ORM
+• <strong style="color:var(--yellow);">DevOps &amp; Cloud:</strong> AWS, Docker, GitHub Actions CI/CD, Linux Server Management
+• <strong style="color:var(--accent);">AI &amp; Entegrasyon:</strong> OpenAI API, LangChain, WhatsApp Business API, Stripe
+      `.trim());
+    }
+
+    function showProjects() {
+      let html = `<div style="color:var(--accent); font-weight:bold; margin-bottom:0.4rem;">ZIFTSTUDIO PORTFÖYÜ (11 Proje):</div>`;
+      projectsList.forEach(p => {
+        html += `
+          <div class="project-cli-item">
+            <span class="project-cli-num">[${p.num}]</span>
+            <span class="project-cli-title">${p.name}</span> — <span style="color:var(--text-sub);">${p.desc}</span>
+            <div class="project-cli-tech">Stack: ${p.tech}</div>
+          </div>
+        `;
+      });
+      printLine(html);
+    }
+
+    function showPrices() {
+      printLine(`
+<span style="color:var(--accent); font-weight:bold;">YAZILIM &amp; TASARIM PAKETLERİ</span>
+
+<strong style="color:var(--green);">[1] TEMEL PAKET (8.000 TL)</strong>
+    └─ Tek sayfa Landing Page, Mobil Uyum, WhatsApp Entegrasyonu, Temel SEO.
+
+<strong style="color:var(--yellow);">[2] ORTA PAKET (15.000 TL) — ÖNERİLEN</strong>
+    └─ 4-6 Sayfa Özel UI/UX, Hız Optimizasyonu, Blog Modülü, Site Haritası, 1 Yıl Destek.
+
+<strong style="color:var(--purple);">[3] GELİŞMİŞ &amp; SAAS PAKET (25.000+ TL)</strong>
+    └─ Admin Panelli Özel Web Uygulaması, API Entegrasyonları, CRM, Çoklu Dil Desteği.
+      `.trim());
+    }
+
+    function showContact() {
+      printLine(`
+<span style="color:var(--accent); font-weight:bold;">İLETİŞİM KANALLARI</span>
+• <strong>E-Posta:</strong> <a href="mailto:muhammedalikitir.tr@gmail.com" style="color:var(--cyan);">muhammedalikitir.tr@gmail.com</a>
+• <strong>WhatsApp:</strong> <a href="https://wa.me/905424786254" target="_blank" style="color:var(--green);">+90 542 478 6254</a>
+• <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/muhammed-ali-kitir" target="_blank" style="color:var(--blue);">linkedin.com/in/muhammed-ali-kitir</a>
+• <strong>Instagram:</strong> <a href="https://instagram.com/zift.studio" target="_blank" style="color:var(--accent);">@zift.studio</a>
+      `.trim());
+    }
+
+    function showLs() {
+      printLine(`
+<span style="color:var(--cyan);">index.html</span>   <span style="color:var(--text-sub);">about.txt</span>   <span style="color:var(--yellow);">stack.json</span>   <span style="color:var(--green);">contact.cfg</span>
+(Dosyaları okumak için: <strong style="color:var(--accent);">cat about.txt</strong>)
+      `.trim());
+    }
+
+    function showCat(fileName) {
+      if (!fileName) {
+        printLine("Kullanım: cat <dosya_adi> (Örn: cat about.txt, cat stack.json)", "error");
+        return;
+      }
+      if (virtualFiles[fileName]) {
+        printLine(`<pre style="color:var(--text-sub); font-family:inherit;">${virtualFiles[fileName]}</pre>`);
+      } else {
+        printLine(`Hata: '${fileName}' bulunamadı. Mevcut dosyaları görmek için 'ls' yazın.`, "error");
+      }
+    }
+
+    function showPing() {
+      printLine(`PING ziftstudio.site (104.21.48.1): 56 data bytes\n64 bytes from 104.21.48.1: icmp_seq=1 ttl=58 time=7.84 ms\n64 bytes from 104.21.48.1: icmp_seq=2 ttl=58 time=8.12 ms\n--- 0% packet loss | min/avg/max = 7.84/7.98/8.12 ms ---`, 'info');
+    }
+
+    function navigateTo(url) {
+      printLine(`'${url}' sayfasına yönlendiriliyorsunuz...`, 'info');
+      setTimeout(() => {
+        window.location.href = url;
+      }, 400);
+    }
+
+    // Matrix Rain Effect
+    let isMatrixRunning = false;
+    let matrixInterval = null;
+    const alphabet = "0101010101010101ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const fontSize = 16;
+    let columns = 0;
+    let rainDrops = [];
+
+    function toggleMatrix() {
+      isMatrixRunning = !isMatrixRunning;
+      if (isMatrixRunning) {
+        matrixCanvas.style.display = 'block';
+        resizeMatrix();
+        window.removeEventListener('resize', resizeMatrix);
+        window.addEventListener('resize', resizeMatrix);
+        if (matrixInterval) clearInterval(matrixInterval);
+        matrixInterval = setInterval(drawMatrix, 30);
+        printLine("Matrix yağmuru arka planda başlatıldı! Kapatmak için tekrar 'matrix' yazın.", "success");
+      } else {
+        if (matrixInterval) clearInterval(matrixInterval);
+        matrixCanvas.style.display = 'none';
+        printLine("Matrix yağmuru durduruldu.", "info");
+      }
+    }
+
+    function resizeMatrix() {
+      if (!isMatrixRunning) return;
+      matrixCanvas.width = terminalBody.clientWidth || window.innerWidth;
+      matrixCanvas.height = terminalBody.clientHeight || window.innerHeight;
+      columns = Math.max(1, Math.floor(matrixCanvas.width / fontSize));
+      rainDrops = Array(columns).fill(1);
+    }
+
+    function drawMatrix() {
+      ctxMatrix.fillStyle = 'rgba(0, 0, 0, 0.06)';
+      ctxMatrix.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+      ctxMatrix.fillStyle = 'var(--accent)';
+      ctxMatrix.font = fontSize + 'px monospace';
+      
+      for(let i = 0; i < rainDrops.length; i++) {
+        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+        ctxMatrix.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+        if (rainDrops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
+          rainDrops[i] = 0;
+        }
+        rainDrops[i]++;
+      }
+    }
+
+    // Retro Snake Game
+    let isSnakeRunning = false;
+    let snake = [];
+    let food = {};
+    let dx = 10;
+    let dy = 0;
+    let score = 0;
+    let gameInterval = null;
+
+    function setSnakeDir(newDx, newDy) {
+      if (!isSnakeRunning) return;
+      if (newDx !== 0 && dx === 0) { dx = newDx; dy = 0; }
+      if (newDy !== 0 && dy === 0) { dy = newDy; dx = 0; }
+    }
+
+    function startSnakeGame() {
+      if (isSnakeRunning) {
+        printLine("Yılan oyunu zaten aktif! Yön tuşlarıyla kontrol edin.", "info");
+        return;
+      }
+      isSnakeRunning = true;
+      snakeBox.style.display = 'flex';
+      printLine("YILAN OYUNU BAŞLADI! Ok tuşlarıyla kontrol edin. Durdurmak için 'clear' yazın.", "success");
+      
+      snake = [
+        {x: 140, y: 140},
+        {x: 130, y: 140},
+        {x: 120, y: 140}
+      ];
+      dx = 10;
+      dy = 0;
+      score = 0;
+      snakeScoreEl.textContent = '0';
+      generateFood();
+      
+      if (gameInterval) clearInterval(gameInterval);
+      gameInterval = setInterval(gameStep, 80);
+      setTimeout(() => {
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+      }, 50);
+    }
+
+    function generateFood() {
+      food = {
+        x: Math.floor(Math.random() * 27) * 10,
+        y: Math.floor(Math.random() * 27) * 10
+      };
+    }
+
+    function gameStep() {
+      const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+      snake.unshift(head);
+
+      if (head.x === food.x && head.y === food.y) {
+        score += 10;
+        snakeScoreEl.textContent = score;
+        generateFood();
+      } else {
+        snake.pop();
+      }
+
+      if (head.x < 0 || head.x >= 280 || head.y < 0 || head.y >= 280 || checkCollision(head)) {
+        clearInterval(gameInterval);
+        isSnakeRunning = false;
+        printLine(`OYUN BİTTİ! Toplam Skorunuz: ${score}. Tekrar oynamak için 'snake' yazın.`, 'error');
+        return;
+      }
+
+      ctxGame.fillStyle = '#111';
+      ctxGame.fillRect(0, 0, 280, 280);
+
+      // Grid
+      ctxGame.strokeStyle = 'rgba(255,255,255,0.03)';
+      for(let i=0; i<=280; i+=10) {
+        ctxGame.beginPath(); ctxGame.moveTo(i,0); ctxGame.lineTo(i,280); ctxGame.stroke();
+        ctxGame.beginPath(); ctxGame.moveTo(0,i); ctxGame.lineTo(280,i); ctxGame.stroke();
+      }
+
+      // Food
+      ctxGame.fillStyle = '#ef4444';
+      ctxGame.fillRect(food.x, food.y, 9, 9);
+
+      // Snake
+      snake.forEach((part, idx) => {
+        ctxGame.fillStyle = idx === 0 ? 'var(--accent)' : 'var(--green)';
+        ctxGame.fillRect(part.x, part.y, 9, 9);
+      });
+    }
+
+    function checkCollision(head) {
+      for(let i = 1; i < snake.length; i++) {
+        if (snake[i].x === head.x && snake[i].y === head.y) return true;
+      }
+      return false;
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (isSnakeRunning) {
+        if (e.key === 'ArrowUp') { setSnakeDir(0, -10); e.preventDefault(); }
+        if (e.key === 'ArrowDown') { setSnakeDir(0, 10); e.preventDefault(); }
+        if (e.key === 'ArrowLeft') { setSnakeDir(-10, 0); e.preventDefault(); }
+        if (e.key === 'ArrowRight') { setSnakeDir(10, 0); e.preventDefault(); }
+      }
+    });
+
+    // Auto-focus input on terminal click
+    document.addEventListener('click', (e) => {
+      if (!window.getSelection().toString() && e.target !== cmdInput && !e.target.closest('.snake-touch-btn') && !e.target.closest('.header-icon-btn') && !e.target.closest('a')) {
+        cmdInput.focus();
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      cmdInput.focus();
+    });
+  </script>
+</body>
+</html>

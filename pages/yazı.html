@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZiftStudio — Blog & Proje Vaka Analizleri</title>
+  <meta name="description" content="ZiftStudio mühendislik ve tasarım blogu: Randevu sistemleri, QR menü mimarisi, SaaS araçları, topluluk platformları ve modern web yazılım vaka analizleri.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://ziftstudio.site/pages/yaz%C4%B1.html">
+  <link rel="alternate" hreflang="tr-TR" href="https://ziftstudio.site/pages/yaz%C4%B1.html">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ZiftStudio — Blog & Proje Vaka Analizleri">
+  <meta property="og:description" content="Yazılım geliştirme, SaaS ürünleri, QR menü ve gerçek müşteri projelerimizin samimi mühendislik hikayeleri.">
+  <meta property="og:url" content="https://ziftstudio.site/pages/yaz%C4%B1.html">
+  <meta property="og:site_name" content="ZiftStudio">
+  <meta property="og:image" content="https://ziftstudio.site/assets/logos/ziftstudio/ziftstudio-logo-1.png">
+  <meta property="og:image:alt" content="ZiftStudio Logo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ZiftStudio — Blog & Proje Vaka Analizleri">
+  <meta name="twitter:description" content="Yazılım geliştirme, SaaS ürünleri, QR menü ve gerçek müşteri projelerimizin samimi mühendislik hikayeleri.">
+  <meta name="twitter:image" content="https://ziftstudio.site/assets/logos/ziftstudio/ziftstudio-logo-1.png">
+  
+  <link rel="icon" type="image/png" href="../assets/logos/ziftstudio/ziftstudio-logo-1.png">
+  <link rel="apple-touch-icon" href="../assets/logos/ziftstudio/ziftstudio-logo-1.png">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "ZiftStudio Blog & Vaka Analizleri",
+    "url": "https://ziftstudio.site/pages/yaz%C4%B1.html",
+    "inLanguage": "tr-TR",
+    "publisher": {
+      "@type": "Organization",
+      "name": "ZiftStudio",
+      "url": "https://ziftstudio.site/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ziftstudio.site/assets/logos/ziftstudio/ziftstudio-logo-1.png"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Loading Screen Loader -->
+  <div class="loader-overlay" id="loaderOverlay">
+    <div class="loader-shapes">
+      <!-- Floppy disk deco shape -->
+      <svg class="loader-shape-svg loader-shape-1" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+        <polyline points="17 21 17 13 7 13 7 21"></polyline>
+        <polyline points="7 3 7 8 15 8"></polyline>
+      </svg>
+      <!-- Coffee cup deco shape -->
+      <svg class="loader-shape-svg loader-shape-2" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+        <line x1="6" y1="1" x2="6" y2="4"></line>
+        <line x1="10" y1="1" x2="10" y2="4"></line>
+        <line x1="14" y1="1" x2="14" y2="4"></line>
+      </svg>
+      <!-- Code bracket deco shape -->
+      <svg class="loader-shape-svg loader-shape-3" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+    </div>
+    <div class="loader-wrapper">
+      <div class="loader-letter">Z</div>
+      <div class="loader-letter">S</div>
+    </div>
+    <div class="loader-progress-bar">
+      <div class="loader-progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- Custom Immersive Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Top Progress Bar Container -->
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" id="progressBarFill"></div>
+  </div>
+
+  <!-- Main Brutalist Wrapper -->
+  <div class="page-wrapper">
+
+    <!-- Navigation -->
+    <nav id="navbar">
+      <a href="../index.html" class="logo">
+        <img src="../assets/logos/ziftstudio/ziftstudio-logo-1.png" alt="ZiftStudio Logo" class="logo-mark">
+        Zift<span>Studio</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#hero">Giriş</a></li>
+        <li><a href="../index.html#pricing">Paketler</a></li>
+        <li><a href="../index.html#about">Hakkımızda</a></li>
+        <li><a href="projeler.html#projects">Projeler</a></li>
+        <li><a href="../index.html#technologies">Teknolojiler</a></li>
+        <li><a href="../index.html#success">Görüşler</a></li>
+        <li><a href="yazı.html" style="color: var(--pink);">Blog</a></li>
+        <li><a href="../index.html#contact">İletişim</a></li>
+      </ul>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="theme-toggle-nav" id="themeToggle" aria-label="Temayı Değiştir">
+          <span id="themeToggleIcon">🌙</span>
+        </button>
+        <a href="terminal.html" class="nav-cta">Terminal</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="../index.html#hero" onclick="closeMobileNav()">Giriş</a>
+      <a href="../index.html#pricing" onclick="closeMobileNav()">Paketler</a>
+      <a href="../index.html#about" onclick="closeMobileNav()">Hakkımızda</a>
+      <a href="projeler.html#projects" onclick="closeMobileNav()">Projeler</a>
+      <a href="../index.html#technologies" onclick="closeMobileNav()">Teknolojiler</a>
+      <a href="../index.html#success" onclick="closeMobileNav()">Görüşler</a>
+      <a href="yazı.html" onclick="closeMobileNav()">Blog</a>
+      <a href="../index.html#contact" onclick="closeMobileNav()">İletişim</a>
+    </div>
+
+    <!-- Blog Archive Section -->
+    <section id="articles" style="padding-top: 140px; padding-bottom: 120px;">
+      <div class="section-label reveal">Mühendislik Günlüğü & Vaka Analizleri</div>
+      <h1 class="section-title reveal" style="margin-bottom: 1rem;">Deneyimlerimiz & <em>Yazılarımız</em></h1>
+      <p class="reveal" style="font-size: 1.15rem; color: var(--text-sub); max-width: 780px; margin-bottom: 2.5rem; line-height: 1.7;">
+        ZiftStudio'da geliştirdiğimiz randevu sistemlerinden QR menülere, SaaS mikro araçlarından topluluk portallarına kadar tüm projelerimizin perde arkası, teknik mimarisi ve samimi hikayeleri.
+      </p>
+
+      <!-- Category Filter Bar -->
+      <div class="blog-filter-bar reveal">
+        <button type="button" class="blog-filter-btn active" onclick="filterBlogCategory('all', this)">
+          🌟 Tümü (6 Yazı)
+        </button>
+        <button type="button" class="blog-filter-btn" onclick="filterBlogCategory('custom', this)">
+          ⚡ Özel Yazılımlar & Ürünler
+        </button>
+        <button type="button" class="blog-filter-btn" onclick="filterBlogCategory('saas', this)">
+          🚀 SaaS & Mikro Araçlar
+        </button>
+        <button type="button" class="blog-filter-btn" onclick="filterBlogCategory('community', this)">
+          👥 Müşteri & Topluluk Projeleri
+        </button>
+        <button type="button" class="blog-filter-btn" onclick="filterBlogCategory('engineering', this)">
+          🛠️ Mimari & Kod Felsefesi
+        </button>
+      </div>
+      
+      <div class="article-list">
+        
+        <!-- Post 1: Randevu Sistemi Vaka Analizi -->
+        <article class="article-card reveal" id="post-randevu" data-category="custom">
+          <div class="article-card-header">
+            <span class="article-category-badge badge-custom">⚡ Özel Yazılım & Vaka Analizi</span>
+            <div class="article-meta-group">
+              <span class="article-reading-time">⏱️ 5 dk okuma</span>
+              <span>•</span>
+              <time datetime="2025-05-18">18 Mayıs 2025</time>
+            </div>
+          </div>
+
+          <h2 class="article-title">Kuaförden Kliniğe: Telefon Trafiğini ve Kaosu Sıfırlayan Randevu Sistemini Nasıl İnşa Ettik?</h2>
+
+          <div class="article-cover-wrap">
+            <img src="../assets/image/randevu/randevu-1.png" alt="ZiftStudio Randevu Sistemi Soft ve Modern Arayüzü" class="article-cover-img" loading="lazy">
+            <div class="article-cover-caption">
+              <span>🌸 ZiftStudio Randevu Sistemi — Soft & Modern Arayüz Mimarisi</span>
+              <span>Canlı Demo Mevcut ↗</span>
+            </div>
+          </div>
+
+          <div class="article-content">
+            <p class="article-lead">
+              Bir kuaför salonunu, diş hekimi kliniğini ya da psikolojik danışmanlık merkezini ziyaret ettiğinizde en sık duyduğunuz ses telefon zili ve fısıltılı takvim arayışlarıdır: <em>"Salı saat 14:00 dolu muydu? Ahmet Bey'in seansı ne zamandı?"</em> Bu kaos hem müşteriyi yorar hem de işletme sahibinin enerjisini tüketir.
+            </p>
+
+            <div class="article-quote">
+              "Yazılım geliştirirken ilk kuralımız şudur: Kullanıcı sisteme girdiğinde bir kılavuza ihtiyaç duyuyorsa, o tasarım başarısızdır. Randevu sistemimizi 7'den 70'e herkesin 3 tıkla randevu alabileceği sadelikte inşa ettik."
+            </div>
+
+            <div class="article-expanded-text">
+              <h3 class="article-subheading">🎯 1. Problem: Çakışan Randevular ve Kaybolan Mesajlar</h3>
+              <p>
+                İşletmeler genellikle WhatsApp mesajları, Instagram DM'leri ve kağıt ajandalar arasında bölünmüş durumdaydı. Gece yarısı gelen bir randevu talebine geç dönüldüğünde müşteri başka bir işletmeye gidiyor; aynı saate iki randevu yazıldığında ise kapıda kriz çıkıyordu. Biz ZiftStudio olarak masaya oturduğumuzda amacımız basitti: <strong>İşletmeyi 7/24 randevu kabul eden otonom bir yapıya kavuşturmak.</strong>
+              </p>
+
+              <h3 class="article-subheading">🌸 2. İki Farklı Tasarım Dili: Soft vs Modern</h3>
+              <p>
+                Her sektörün ruhu farklıdır. Bir güzellik merkezi veya klinik pastel tonlarda, ferah ve sakin bir arayüz (<strong>Soft Tasarım</strong>) isterken; modern bir berber stüdyosu veya dövme atölyesi yüksek kontrastlı, dinamik bir çizgi (<strong>Modern Tasarım</strong>) talep ediyordu. Biz de iki ayrı tasarım varyantını tek bir güçlü çekirdek üzerinde kurguladık.
+              </p>
+
+              <!-- Gallery row for Randevu -->
+              <div class="article-gallery-grid">
+                <div class="article-gallery-item">
+                  <img src="../assets/image/randevu/randevu-2.png" alt="Randevu Sistemi Takvim Ekranı" loading="lazy">
+                  <div class="article-gallery-label">📅 1. Anlık Saat & Personel Seçimi</div>
+                </div>
+                <div class="article-gallery-item">
+                  <img src="../assets/image/randevu/randevu-4.png" alt="Randevu Yönetim Paneli" loading="lazy">
+                  <div class="article-gallery-label">⚙️ 2. Kolay Yönetim Paneli Arayüzü</div>
+                </div>
+              </div>
+
+              <h3 class="article-subheading">⚡ 3. Teknik Mimari: Neden Süper Hafif ve Hızlı?</h3>
+              <p>
+                Geleneksel randevu yazılımlarının çoğu ağır framework'ler ve yüzlerce gereksiz modülle şişirilmiştir. Müşteri randevu alırken sayfa donarsa sistemi terk eder. Biz sistemin ön yüzünü saf, optimize edilmiş modern JavaScript ile inşa ettik. Sayfa ilk açılışta yalnızca <strong>0.3 saniyede</strong> etkileşime hazır hale geliyor.
+              </p>
+
+              <div class="article-callout">
+                <div class="article-callout-title">💡 İşletme Sahibi İçin Ne Değişti?</div>
+                <ul class="article-feature-list">
+                  <li><strong>Yazılımcıya Bağımlılık Sıfırlandı:</strong> Fiyat, hizmet süresi, tatil günleri ve çalışma saatleri tek tıkla güncelleniyor.</li>
+                  <li><strong>Çift Rezervasyon İmkansız Hale Geldi:</strong> Seçilen saat dilimi anında kilitlenerek çakışmalar matematiksel olarak engellendi.</li>
+                  <li><strong>Haftalık 15+ Saat Zaman Tasarrufu:</strong> Telefonla randevu ayarlama yükü kalktı, işletme asıl işine odaklandı.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="article-actions-bar">
+            <button type="button" class="read-more-btn">
+              Devamını Oku
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <a href="randevu.html" class="article-project-link">
+              Randevu Sistemi Paketlerini & Demoyu İncele →
+            </a>
+          </div>
+
+          <div class="article-tags-wrap">
+            <span class="article-tag-pill">#RandevuSistemi</span>
+            <span class="article-tag-pill">#UIUX</span>
+            <span class="article-tag-pill">#VakaAnalizi</span>
+            <span class="article-tag-pill">#AdminPanel</span>
+            <span class="article-tag-pill">#SoftTasarım</span>
+          </div>
+
+          <div class="article-author-footer">
+            <img src="../assets/image/hero-avatar.jpg" alt="Muhammed Ali Kıtıl" class="article-author-avatar">
+            <div class="article-author-info">
+              <span class="article-author-name">Muhammed Ali Kıtıl</span>
+              <span class="article-author-role">Lead Full-Stack Architect & Founder @ ZiftStudio</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 2: QR Menü Sistemleri -->
+        <article class="article-card reveal" id="post-qrmenu" data-category="custom">
+          <div class="article-card-header">
+            <span class="article-category-badge badge-custom">⚡ Özel Yazılım & Restoran Teknolojisi</span>
+            <div class="article-meta-group">
+              <span class="article-reading-time">⏱️ 4 dk okuma</span>
+              <span>•</span>
+              <time datetime="2025-05-02">02 Mayıs 2025</time>
+            </div>
+          </div>
+
+          <h2 class="article-title">PDF Menülerin Sonu: Restoranlar İçin 0.2 Saniyede Açılan Temassız Menü Mimarisi</h2>
+
+          <div class="article-cover-wrap">
+            <img src="../assets/image/qr-menu-thumb.jpg" alt="ZiftStudio QR Menü Arayüzü" class="article-cover-img" loading="lazy">
+            <div class="article-cover-caption">
+              <span>📱 QR Menü Sistemleri — Hem Admin Panelli Hem Statik Seçenek</span>
+              <span>Canlı Önizleme Mevcut ↗</span>
+            </div>
+          </div>
+
+          <div class="article-content">
+            <p class="article-lead">
+              Restorana oturup masadaki QR kodu okuttuğunuzda, telefonunuza 45 MB boyutunda, parmakla yakınlaştırılmaya çalışılan bozuk bir PDF dosyasının indiği o can sıkıcı anı hepimiz yaşadık. Menü açılana kadar sipariş verme hevesi kayboluyor.
+            </p>
+
+            <div class="article-quote">
+              "Bir restoranda menü açılış süresi 2 saniyenin üzerine çıktığında, müşterinin memnuniyet puanı %40 düşer. Biz ZiftStudio'da menüyü 0.2 saniyede açılan bir web uygulaması haline getirdik."
+            </div>
+
+            <div class="article-expanded-text">
+              <h3 class="article-subheading">🍔 1. Statik vs Admin Panelli: İki İhtiyaca İki Çözüm</h3>
+              <p>
+                Piyasadaki birçok yazılım firması tek bir hazır şablonu tüm kafelere zorla satmaya çalışır. Biz ise restoran sahiplerinin operasyonel gerçeğini ikiye ayırdık:
+              </p>
+              <ul class="article-feature-list">
+                <li><strong>Admin Panelli Model:</strong> Sürekli fiyat güncelleyen, yeni kahve/tatlı çeşitleri ekleyen veya günün menüsünü yayınlayan mekanlar için cep telefonundan 3 saniyede anında güncelleme imkanı.</li>
+                <li><strong>Statik Model (Ekonomik & Ultra Hızlı):</strong> Menüsü sabit olan veya fiyatları mevsimlik değişen işletmeler için sıfır sunucu riski, sıfır veritabanı yavaşlığı ve bütçe dostu maliyet.</li>
+              </ul>
+
+              <!-- Gallery row for QR Menu -->
+              <div class="article-gallery-grid">
+                <div class="article-gallery-item">
+                  <img src="../assets/image/qrmenu1.png" alt="QR Menü Ürün Kartları" loading="lazy">
+                  <div class="article-gallery-label">🍽️ 1. İştah Açıcı Ürün Kartları & Fiyatlar</div>
+                </div>
+                <div class="article-gallery-item">
+                  <img src="../assets/image/cafearoma-thumb.jpg" alt="CafeAroma Dijital Menü" loading="lazy">
+                  <div class="article-gallery-label">☕ 2. Kategori Butonları & Akıcı Filtreleme</div>
+                </div>
+              </div>
+
+              <h3 class="article-subheading">📈 2. Masada Sepet Tutarını Nasıl %25 Artırdık?</h3>
+              <p>
+                İyi çekilmiş ürün fotoğrafları, net alerjen uyarıları ve "Yanında iyi gider" önerileriyle zenginleştirilen dijital menülerimiz sayesinde müşteriler sipariş vermekten keyif alıyor. Garson çağırma ihtiyacı azalırken, masaların devir hızı (table turnover) %18 oranında hızlandı.
+              </p>
+
+              <div class="article-callout">
+                <div class="article-callout-title">💡 Neden Sıfır Güvenlik Riski?</div>
+                <p>
+                  Statik QR menülerimizde arka planda hacklenebilecek bir veritabanı veya açık sunucu portu bulunmaz. Tüm içerik küresel CDN altyapısında statik olarak önbelleğe alınır. Elektrikler kesilse bile siteniz asla çökmez!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="article-actions-bar">
+            <button type="button" class="read-more-btn">
+              Devamını Oku
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <a href="qr-menu.html" class="article-project-link">
+              QR Menü Modellerini & Fiyat Tablosunu Gör →
+            </a>
+          </div>
+
+          <div class="article-tags-wrap">
+            <span class="article-tag-pill">#QRMenu</span>
+            <span class="article-tag-pill">#RestoranYazilimi</span>
+            <span class="article-tag-pill">#Performance</span>
+            <span class="article-tag-pill">#MobileFirst</span>
+          </div>
+
+          <div class="article-author-footer">
+            <img src="../assets/image/hero-avatar.jpg" alt="Muhammed Ali Kıtıl" class="article-author-avatar">
+            <div class="article-author-info">
+              <span class="article-author-name">Muhammed Ali Kıtıl</span>
+              <span class="article-author-role">Lead Full-Stack Architect & Founder @ ZiftStudio</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 3: SaaS Ürünlerimiz (CafeAroma, Sınav Sayacı, QR Generator, Flip Clock) -->
+        <article class="article-card reveal" id="post-saas" data-category="saas">
+          <div class="article-card-header">
+            <span class="article-category-badge badge-saas">🚀 SaaS & Dijital Ürünler</span>
+            <div class="article-meta-group">
+              <span class="article-reading-time">⏱️ 6 dk okuma</span>
+              <span>•</span>
+              <time datetime="2025-04-20">20 Nisan 2025</time>
+            </div>
+          </div>
+
+          <h2 class="article-title">Küçük Araçlar, Büyük Etkiler: 4 Mikro-SaaS Projesini Geliştirirken Neler Öğrendik?</h2>
+
+          <div class="article-cover-wrap">
+            <img src="../assets/image/saas-thumb.jpg" alt="ZiftStudio SaaS Ürün Ailesi" class="article-cover-img" loading="lazy">
+            <div class="article-cover-caption">
+              <span>🚀 ZiftStudio SaaS Araçları: CafeAroma, Sınav Sayacı, QR Engine & Flip Clock</span>
+              <span>Canlı Araçlar ↗</span>
+            </div>
+          </div>
+
+          <div class="article-content">
+            <p class="article-lead">
+              Bir yazılımın değerli olması için milyon dolarlık bütçelere veya yüzlerce sayfalık karmaşık panellere ihtiyacı yoktur. Bazen tek bir amaca kusursuz hizmet eden mikro araçlar, kullanıcıların hayatını çok daha fazla kolaylaştırır.
+            </p>
+
+            <div class="article-quote">
+              "ZiftStudio SaaS laboratuvarında geliştirdiğimiz ürünlerin tek bir ortak noktası var: Sıfır gecikme, tarayıcı tabanlı yüksek performans ve şık Neo-Brutalist estetik."
+            </div>
+
+            <div class="article-expanded-text">
+              <h3 class="article-subheading">☕ 1. CafeAroma — Kafe Atmosferinin Dijital Yansıması</h3>
+              <p>
+                Kahve kokusunu dijitale taşımak kolay değil. CafeAroma ile müşterilere sadece bir menü değil; mekanın ruhunu hissettiren, rezervasyon akışını kolaylaştıran ve içecek profillerini tanıtan zarif bir marka sitesi sunduk.
+              </p>
+
+              <h3 class="article-subheading">⏳ 2. Sınav Sayacı — YKS & LGS Öğrencileri İçin Odaklanma Aracı</h3>
+              <p>
+                Sınava hazırlanan öğrencilerin en büyük ihtiyacı, ekran başında dikkat dağıtıcı unsurlardan arınmış net bir hedef bilincidir. Sınav Sayacı ile LocalStorage tabanlı, internet bağlantısı gerektirmeyen, hedef sınav tarihlerini anlık milisaniyesine kadar hesaplayan minimal bir sayaç inşa ettik.
+              </p>
+
+              <!-- Gallery grid for SaaS -->
+              <div class="article-gallery-grid">
+                <div class="article-gallery-item">
+                  <img src="../assets/image/cafearoma-thumb.jpg" alt="CafeAroma Ekranı" loading="lazy">
+                  <div class="article-gallery-label">☕ CafeAroma Kafe Arayüzü</div>
+                </div>
+                <div class="article-gallery-item">
+                  <img src="../assets/image/sinavsayac-thumb.jpg" alt="Sınav Sayacı Ekranı" loading="lazy">
+                  <div class="article-gallery-label">⏳ Sınav Sayacı Geri Sayım</div>
+                </div>
+                <div class="article-gallery-item">
+                  <img src="../assets/image/qrcodegen-thumb.jpg" alt="QR Kod Oluşturucu Ekranı" loading="lazy">
+                  <div class="article-gallery-label">📲 QR Kod Jeneratörü</div>
+                </div>
+                <div class="article-gallery-item">
+                  <img src="../assets/image/flipclock-thumb.jpg" alt="Flip Clock Ekranı" loading="lazy">
+                  <div class="article-gallery-label">⏰ 3D Flip Clock Dijital Saat</div>
+                </div>
+              </div>
+
+              <h3 class="article-subheading">📲 3. QR Kod Oluşturucu & ⏰ Flip Clock</h3>
+              <p>
+                <strong>QR Kod Jeneratörümüzde</strong> sunucuya hiçbir veri göndermeden doğrudan tarayıcı içi Canvas API üzerinden yüksek çözünürlüklü SVG/PNG QR kodları render ettik. <strong>Flip Clock</strong> projemizde ise CSS 3D Transforms ve perspektif animasyonlarıyla eski mekanik havaalanı saatlerinin o nostaljik akışını modern ekranlara taşıdık.
+              </p>
+
+              <div class="article-callout">
+                <div class="article-callout-title">💡 Mühendislik Çıkarımımız</div>
+                <p>
+                  Mikro-SaaS araçlarında en kritik unsur "Time to Value" süresidir. Kullanıcı sayfaya girdiği anda kayıt formuyla boğuşmadan, 2 saniye içinde aracın faydasını görmelidir. Bu prensip ürünlerimizin etkileşim oranını 3 katına çıkardı.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="article-actions-bar">
+            <button type="button" class="read-more-btn">
+              Devamını Oku
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <a href="saas.html" class="article-project-link">
+              Tüm SaaS Araçlarımızı Keşfet →
+            </a>
+          </div>
+
+          <div class="article-tags-wrap">
+            <span class="article-tag-pill">#SaaS</span>
+            <span class="article-tag-pill">#JavaScript</span>
+            <span class="article-tag-pill">#CanvasAPI</span>
+            <span class="article-tag-pill">#CSS3D</span>
+            <span class="article-tag-pill">#LocalStorage</span>
+          </div>
+
+          <div class="article-author-footer">
+            <img src="../assets/image/hero-avatar.jpg" alt="Muhammed Ali Kıtıl" class="article-author-avatar">
+            <div class="article-author-info">
+              <span class="article-author-name">Muhammed Ali Kıtıl</span>
+              <span class="article-author-role">Lead Full-Stack Architect & Founder @ ZiftStudio</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 4: Topluluk ve Kamu Projeleri (KonParlamento & Karatay Gençlik Meclisi) -->
+        <article class="article-card reveal" id="post-community" data-category="community">
+          <div class="article-card-header">
+            <span class="article-category-badge badge-community">👥 Topluluk & Gençlik Katılımı</span>
+            <div class="article-meta-group">
+              <span class="article-reading-time">⏱️ 4 dk okuma</span>
+              <span>•</span>
+              <time datetime="2025-03-25">25 Mart 2025</time>
+            </div>
+          </div>
+
+          <h2 class="article-title">Sivil Toplumu Dijitale Taşımak: Gençlik Meclisleri İçin Katılım Platformu Mimarisi</h2>
+
+          <div class="article-cover-wrap">
+            <img src="../assets/image/proj-konparlamento.jpg" alt="KonParlamento.org Platformu Ekran Görüntüsü" class="article-cover-img" loading="lazy">
+            <div class="article-cover-caption">
+              <span>🏛️ KonParlamento.org & KaratayGençMeclis.org — Gençlik ve Yurttaş Katılımı</span>
+              <span>Aktif Proje ↗</span>
+            </div>
+          </div>
+
+          <div class="article-content">
+            <p class="article-lead">
+              Geleneksel kamu ve sivil toplum siteleri genellikle sıkıcı, bürokratik metinlerle dolu ve mobil cihazlarda kullanımı zor platformlardır. Konya Gençlik Parlamentosu ve Karatay Gençlik Meclisi projelerinde amacımız bu kalıbı tamamen kırmaktı.
+            </p>
+
+            <div class="article-quote">
+              "Gençlerin bir platformu benimsemesi için arayüzün onların konuştuğu dilden anlaması gerekir: Hızlı, modern, etkileşimli ve şeffaf."
+            </div>
+
+            <div class="article-expanded-text">
+              <h3 class="article-subheading">🏛️ 1. KonParlamento.org: Yurttaş Katılımında Yeni Bir Sayfa</h3>
+              <p>
+                KonParlamento platformu; gençlerin şehirle ilgili fikirlerini iletebildiği, komisyon çalışmalarını takip edebildiği ve anketlere katılabildiği şeffaf bir dijital köprü olarak kurgulandı. Ağır sunucu yüklerine dayanıklı, mobil öncelikli bir arayüz inşa ettik.
+              </p>
+
+              <!-- Gallery for Community -->
+              <div class="article-gallery-grid">
+                <div class="article-gallery-item">
+                  <img src="../assets/image/proj-konparlamento.jpg" alt="KonParlamento Web Sitesi" loading="lazy">
+                  <div class="article-gallery-label">🏛️ KonParlamento.org Katılım Portalı</div>
+                </div>
+                <div class="article-gallery-item">
+                  <img src="../assets/image/proj-karataygenc.jpg" alt="Karatay Gençlik Meclisi Platformu" loading="lazy">
+                  <div class="article-gallery-label">🎯 KaratayGençMeclis.org Gençlik Ağı</div>
+                </div>
+              </div>
+
+              <h3 class="article-subheading">🎯 2. KaratayGençMeclis.org: Etkinlikler ve Gençlik Dayanışması</h3>
+              <p>
+                Karatay Gençlik Meclisi projesinde ise gençlerin etkinliklere kayıt olabileceği, gönüllülük projelerine başvurabileceği ve meclis kararlarını inceleyebileceği interaktif modüller geliştirdik. Yüksek erişilebilirlik (A11y) standartlarına sadık kalarak her gencin platformdan eşit şekilde faydalanmasını sağladık.
+              </p>
+
+              <div class="article-callout">
+                <div class="article-callout-title">💡 Topluluk Projelerinde Öğrendiklerimiz</div>
+                <p>
+                  Sivil toplum projelerinde hız kadar <strong>erişilebilirlik ve sade navigasyon</strong> kritiktir. Ziyaretçilerin aradıkları duyuruya 2 saniye içinde ulaşabilmesi, etkinlik katılım oranlarını %60 artırdı.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="article-actions-bar">
+            <button type="button" class="read-more-btn">
+              Devamını Oku
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <a href="musteri-siteleri.html" class="article-project-link">
+              Müşteri & Topluluk Portföyünü İncele →
+            </a>
+          </div>
+
+          <div class="article-tags-wrap">
+            <span class="article-tag-pill">#KonParlamento</span>
+            <span class="article-tag-pill">#KaratayGencMeclis</span>
+            <span class="article-tag-pill">#Community</span>
+            <span class="article-tag-pill">#PublicWeb</span>
+            <span class="article-tag-pill">#Accessibility</span>
+          </div>
+
+          <div class="article-author-footer">
+            <img src="../assets/image/hero-avatar.jpg" alt="Muhammed Ali Kıtıl" class="article-author-avatar">
+            <div class="article-author-info">
+              <span class="article-author-name">Muhammed Ali Kıtıl</span>
+              <span class="article-author-role">Lead Full-Stack Architect & Founder @ ZiftStudio</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 5: Kişisel Marka & Kurumsal Müşteri Siteleri -->
+        <article class="article-card reveal" id="post-clients" data-category="community">
+          <div class="article-card-header">
+            <span class="article-category-badge badge-community">💼 Müşteri Siteleri & Kurumsal Dönüşüm</span>
+            <div class="article-meta-group">
+              <span class="article-reading-time">⏱️ 5 dk okuma</span>
+              <span>•</span>
+              <time datetime="2025-02-14">14 Şubat 2025</time>
+            </div>
+          </div>
+
+          <h2 class="article-title">Portföyden 3D Baskı Kataloğuna: Yüksek Dönüşüm Getiren Müşteri Web Siteleri</h2>
+
+          <div class="article-cover-wrap">
+            <img src="../assets/image/proj-emirhantazegul.jpg" alt="EmirHanTazegul.site Kişisel Marka Portföyü" class="article-cover-img" loading="lazy">
+            <div class="article-cover-caption">
+              <span>🌟 EmirHanTazegul.site & Kurumsal Müşteri Projeleri</span>
+              <span>Referans Proje ↗</span>
+            </div>
+          </div>
+
+          <div class="article-content">
+            <p class="article-lead">
+              Bir web sitesi kurmak sadece şık butonlar yerleştirmekten ibaret değildir. Asıl marifet; ziyaretçiyi kapıdan girdiği andan itibaren yönlendirip onunla güven bağı kurmak ve onu müşteriye dönüştürmektir.
+            </p>
+
+            <div class="article-quote">
+              "ZiftStudio'da her müşteri projesini bir dijital satış temsilcisi gibi kurgularız: 7/24 uyanık, son derece nazik, ışık hızında ve güven veren bir temsilci."
+            </div>
+
+            <div class="article-expanded-text">
+              <h3 class="article-subheading">✨ 1. EmirHanTazegul.site: Kişisel Markalaşmada Neo-Brutalist Dokunuş</h3>
+              <p>
+                Kişisel marka sitelerinde standart CV formatları artık dikkat çekmiyor. EmirHanTazegul.site projesinde yüksek enerjili Neo-Brutalist renk blokları, akıcı kaydırma animasyonları ve doğrudan iletişim aksiyonlarıyla kişisel uzmanlığı en üst seviyede konumlandırdık.
+              </p>
+
+              <h3 class="article-subheading">⚖️ 2. Hukuk Bürosu & 🖨️ 3D STL E-Ticaret Kataloğu</h3>
+              <p>
+                <strong>Hukuk bürosu</strong> platformunda güvenilirlik, gizlilik ve doğrudan EmailJS destekli danışmanlık talep formu odaklı sade bir kurumsal mimari tercih ettik. <strong>3D STL & Printing Solutions</strong> projesinde ise binlerce 3D model dosyasının hızlı filtrelenebildiği, filament/reçine sepet yönetimini ve WhatsApp sipariş akışını bir araya getirdik.
+              </p>
+
+              <!-- Gallery for Clients -->
+              <div class="article-gallery-grid">
+                <div class="article-gallery-item">
+                  <img src="../assets/image/proj-emirhantazegul.jpg" alt="Emirhan Tazegül Portföy" loading="lazy">
+                  <div class="article-gallery-label">🌟 Emirhan Tazegül Kişisel Marka</div>
+                </div>
+                <div class="article-gallery-item">
+                  <img src="../assets/image/musteri-thumb.jpg" alt="Hukuk Bürosu Web Sitesi" loading="lazy">
+                  <div class="article-gallery-label">⚖️ Hukuk Bürosu Kurumsal Danışmanlık</div>
+                </div>
+              </div>
+
+              <div class="article-callout">
+                <div class="article-callout-title">💡 WhatsApp API Entegrasyonunun Gücü</div>
+                <p>
+                  Özellikle yerel e-ticaret ve hizmet işletmelerinde karmaşık ödeme adımları yerine <strong>"WhatsApp ile Tek Tıkla Sipariş Ver"</strong> butonunu entegre ettiğimizde, sipariş tamamlama oranlarında %45 artış gözlemledik. İnsanlar doğrudan iletişim kurmayı seviyor.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="article-actions-bar">
+            <button type="button" class="read-more-btn">
+              Devamını Oku
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <a href="musteri-siteleri.html" class="article-project-link">
+              Tüm Müşteri Sitelerini İncele →
+            </a>
+          </div>
+
+          <div class="article-tags-wrap">
+            <span class="article-tag-pill">#Branding</span>
+            <span class="article-tag-pill">#PersonalWebsite</span>
+            <span class="article-tag-pill">#HukukWeb</span>
+            <span class="article-tag-pill">#3DPrinting</span>
+            <span class="article-tag-pill">#WhatsAppAPI</span>
+          </div>
+
+          <div class="article-author-footer">
+            <img src="../assets/image/hero-avatar.jpg" alt="Muhammed Ali Kıtıl" class="article-author-avatar">
+            <div class="article-author-info">
+              <span class="article-author-name">Muhammed Ali Kıtıl</span>
+              <span class="article-author-role">Lead Full-Stack Architect & Founder @ ZiftStudio</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 6: Mimari ve Kod Felsefemiz -->
+        <article class="article-card reveal" id="post-engineering" data-category="engineering">
+          <div class="article-card-header">
+            <span class="article-category-badge badge-engineering">🛠️ Mimari & Kod Felsefesi</span>
+            <div class="article-meta-group">
+              <span class="article-reading-time">⏱️ 6 dk okuma</span>
+              <span>•</span>
+              <time datetime="2025-01-10">10 Ocak 2025</time>
+            </div>
+          </div>
+
+          <h2 class="article-title">Neden 'Hazır Şablon' Kullanmıyoruz? El Emeği Kod, TypeScript ve Neo-Brutalist Felsefemiz</h2>
+
+          <div class="article-cover-wrap">
+            <img src="../assets/logos/ziftstudio/ziftstudio-logo-1.png" alt="ZiftStudio Mühendislik Felsefesi" class="article-cover-img" style="object-fit: contain; background: var(--bg); padding: 2rem;" loading="lazy">
+            <div class="article-cover-caption">
+              <span>⚙️ ZiftStudio Mühendislik Standartları: Zero-Bloat, Strict Types & Pure Performance</span>
+              <span>Manifesto ↗</span>
+            </div>
+          </div>
+
+          <div class="article-content">
+            <p class="article-lead">
+              İnternet dünyası birbirinin aynı görünen, binlerce satır gereksiz CSS ve JavaScript eklentisiyle boğulmuş, açılması 5 saniye süren hazır WordPress şablonlarıyla dolu. Biz ZiftStudio'yu kurarken ilk kararımız bu fabrikasyon anlayışı reddetmek oldu.
+            </p>
+
+            <div class="article-quote">
+              "Bir web sitesine baktığınızda onun bir insan tarafından özenle kodlandığını hissetmelisiniz. Piksel piksel işlenmiş tipografi, tok gölgeler ve saf performans bu zanaatın imzasıdır."
+            </div>
+
+            <div class="article-expanded-text">
+              <h3 class="article-subheading">🧱 1. Neo-Brutalist Tasarım: Cesur, Dürüst ve Zamansız</h3>
+              <p>
+                Neo-Brutalism bizim için sadece görsel bir stil değil; internetin ilk günlerindeki dürüstlüğü modern estetikle buluşturma biçimidir. Kalın siyah çerçeveler, belirgin gölgeler, yüksek kontrastlı renkler ve göz alıcı mikro etkileşimler ziyaretçide anında unutulmaz bir etki bırakır.
+              </p>
+
+              <h3 class="article-subheading">🛡️ 2. Strict TypeScript & Sıfır Runtime Hatası</h3>
+              <p>
+                Projelerimizde `strict: true` moduyla tip güvenliği sağlıyoruz. Bu sayede hata payını daha derleme aşamasında sıfıra indiriyoruz. Kullanıcı hiçbir zaman beklenmedik bir beyaz ekranla karşılaşmaz.
+              </p>
+
+              <div class="article-callout">
+                <div class="article-callout-title">🏆 Lighthouse %98+ Performans Sözümüz</div>
+                <ul class="article-feature-list">
+                  <li><strong>First Contentful Paint (FCP):</strong> 0.4 saniyenin altında.</li>
+                  <li><strong>Cumulative Layout Shift (CLS):</strong> 0 (Sıfır kayma, stabil düzen).</li>
+                  <li><strong>Mobil SEO Uyumluluğu:</strong> %100 tam puan.</li>
+                  <li><strong>Sıfır Şişkinlik (Zero Bloat):</strong> İhtiyaç duyulmayan hiçbir kütüphane projeye dahil edilmez.</li>
+                </ul>
+              </div>
+
+              <p>
+                Sonuç olarak; müşterilerimize sadece bir web sitesi değil, Google'da üst sıralara tırmanan, ziyaretçileri büyüleyen ve yıllarca sorunsuz çalışan dijital başyapıtlar teslim ediyoruz.
+              </p>
+            </div>
+          </div>
+
+          <div class="article-actions-bar">
+            <button type="button" class="read-more-btn">
+              Devamını Oku
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <a href="../index.html#about" class="article-project-link">
+              ZiftStudio Hakkında Daha Fazlası →
+            </a>
+          </div>
+
+          <div class="article-tags-wrap">
+            <span class="article-tag-pill">#TypeScript</span>
+            <span class="article-tag-pill">#NeoBrutalism</span>
+            <span class="article-tag-pill">#WebPerformance</span>
+            <span class="article-tag-pill">#SoftwareEngineering</span>
+            <span class="article-tag-pill">#Lighthouse100</span>
+          </div>
+
+          <div class="article-author-footer">
+            <img src="../assets/image/hero-avatar.jpg" alt="Muhammed Ali Kıtıl" class="article-author-avatar">
+            <div class="article-author-info">
+              <span class="article-author-name">Muhammed Ali Kıtıl</span>
+              <span class="article-author-role">Lead Full-Stack Architect & Founder @ ZiftStudio</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      
+      <div class="blog-more-wrap" style="margin-top: 4rem; text-align: center;">
+        <a href="../index.html" class="blog-more" style="display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--mono-font); font-weight: 800; font-size: 1.1rem; padding: 0.8rem 1.8rem; background: var(--yellow); color: #000; border: 2.5px solid var(--border); box-shadow: 5px 5px 0 var(--border); text-decoration: none; transition: all 0.2s;">
+          ← Ana Sayfaya Dön
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-copy">© 2025 ZiftStudio Digital. Tüm hakları saklıdır.</div>
+      <ul class="footer-links">
+        <li><a href="gizlilik.html">Gizlilik</a></li>
+        <li><a href="gizlilik.html">Kullanım Şartları</a></li>
+        <li><a href="../index.html#contact">İletişim</a></li>
+        <!-- Retro-developer CLI Terminal Link -->
+        <li>
+          <a href="terminal.html" class="footer-terminal-link" title="ZiftStudio Geliştirici Konsolu">
+            >_
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+  </div>
+
+  <script src="../JS/script.js" defer></script>
+</body>
+</html>

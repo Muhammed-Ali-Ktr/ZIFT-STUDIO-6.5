@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZiftStudio — QR Menü Hizmetleri</title>
+    <meta
+      name="description"
+      content="ZiftStudio QR Menü yazılım paketleri, canlı demoları ve fiyatlandırma seçenekleri."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://ziftstudio.site/pages/qr-menu.html" />
+    <link rel="alternate" hreflang="tr-TR" href="https://ziftstudio.site/pages/qr-menu.html" />
+    <link rel="icon" type="image/png" href="../assets/logos/ziftstudio/ziftstudio-logo-1.png" />
+    <link rel="apple-touch-icon" href="../assets/logos/ziftstudio/ziftstudio-logo-1.png" />
+    <link rel="stylesheet" href="../CSS/style.css" />
+  </head>
+  <body>
+    <!-- Custom Immersive Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressBarFill"></div>
+    </div>
+
+    <div class="page-wrapper">
+      <!-- Navigation -->
+      <nav id="navbar">
+        <a href="../index.html" class="logo">
+          <img
+            src="../assets/logos/ziftstudio/ziftstudio-logo-1.png"
+            alt="ZiftStudio Logo"
+            class="logo-mark"
+          />
+          Zift<span>Studio</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../index.html#hero">Giriş</a></li>
+          <li><a href="../index.html#pricing">Paketler</a></li>
+          <li><a href="../index.html#about">Hakkımızda</a></li>
+          <li><a href="projeler.html#projects">Projeler</a></li>
+          <li><a href="../index.html#technologies">Teknolojiler</a></li>
+          <li><a href="../index.html#success">Görüşler</a></li>
+          <li><a href="yazı.html">Blog</a></li>
+          <li><a href="../index.html#contact">İletişim</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle-nav"
+            id="themeToggle"
+            aria-label="Temayı Değiştir"
+          >
+            <span id="themeToggleIcon">🌙</span>
+          </button>
+          <a href="terminal.html" class="nav-cta">Terminal</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+
+      <!-- Mobile Nav Overlay -->
+      <div class="mobile-nav" id="mobileNav">
+        <a href="../index.html#hero" onclick="closeMobileNav()">Giriş</a>
+        <a href="../index.html#pricing" onclick="closeMobileNav()">Paketler</a>
+        <a href="../index.html#about" onclick="closeMobileNav()">Hakkımızda</a>
+        <a href="projeler.html#projects" onclick="closeMobileNav()">Projeler</a>
+        <a href="../index.html#technologies" onclick="closeMobileNav()">Teknolojiler</a>
+        <a href="../index.html#success" onclick="closeMobileNav()">Görüşler</a>
+        <a href="yazı.html" onclick="closeMobileNav()">Blog</a>
+        <a href="../index.html#contact" onclick="closeMobileNav()">İletişim</a>
+      </div>
+
+      <!-- Dedicated QR Menu Software Section -->
+      <section id="qr-menu-section" class="qr-section reveal">
+        <div class="qr-header">
+          <div class="qr-header-left">
+            <span class="section-label">Özel Yazılım Çözümü</span>
+            <h2 class="section-title">QR Menü <em>Yazılım Paketleri</em></h2>
+            <p class="qr-header-desc">
+              Restoran, kafe, otel ve işletmeniz için tasarlanmış
+              <strong>mobil & masaüstü %100 uyumlu</strong> profesyonel QR Menü
+              yazılımları. İhtiyacınıza göre
+              <strong>Admin Panelli (Esnek & Yönetilebilir)</strong> veya
+              <strong>Statik (Ekonomik & Ultra Hızlı)</strong> versiyonlarımızı
+              inceleyin.
+            </p>
+          </div>
+          <div class="qr-header-right">
+            <div class="qr-badge-pill">
+              <span class="pulse-dot"></span> %100 Mobil & Masaüstü Uyumlu
+            </div>
+            <a
+              href="https://wa.me/905424786254?text=Merhaba,%20QR%20Menü%20Yazılımı%20hakkında%20bilgi%20ve%20teklif%20almak%20istiyorum."
+              target="_blank"
+              class="qr-quick-btn"
+            >
+              💬 WhatsApp ile Hızlı Teklif Al
+            </a>
+          </div>
+        </div>
+
+        <!-- Tab Switcher Navigation -->
+        <div class="qr-tab-nav">
+          <button
+            class="qr-tab-btn"
+            data-tab="admin-panel"
+            onclick="switchQrTab('admin-panel')"
+          >
+            <span class="tab-icon">⚡</span>
+            <div class="tab-text">
+              <strong>Admin Panelli QR Menü</strong>
+              <span>Yönetilebilir & Anında Fiyat Değişimi</span>
+            </div>
+          </button>
+          <button class="qr-tab-btn" data-tab="static-menu" onclick="switchQrTab('static-menu')">
+            <span class="tab-icon">🚀</span>
+            <div class="tab-text">
+              <strong>Statik QR Menü</strong>
+              <span>Ekonomik & Ultra Hızlı</span>
+            </div>
+          </button>
+          <button class="qr-tab-btn" data-tab="comparison" onclick="switchQrTab('comparison')">
+            <span class="tab-icon">📊</span>
+            <div class="tab-text">
+              <strong>Özellik Karşılaştırması</strong>
+              <span>Detaylı Matris</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Region 1: Admin Panelli QR Menü -->
+        <div id="qr-tab-admin-panel" class="qr-tab-panel" data-tab="admin-panel">
+          <!-- Sub-Design Switcher Buttons -->
+          <div class="qr-design-switcher-box">
+            <div class="qr-design-switcher-header">
+              <span class="qr-design-title">🎨 Admin Panelli Tasarım Seçenekleri:</span>
+              <span class="qr-design-hint">İncelemek istediğiniz tasarıma tıklayın (kapatmak için tekrar tıklayın)</span>
+            </div>
+            <div class="qr-design-buttons">
+              <button
+                type="button"
+                id="btn-admin-soft"
+                class="qr-design-btn"
+                data-design="soft"
+                onclick="switchAdminDesign('soft', this)"
+              >
+                <div class="qr-design-btn-left">
+                  <span class="qr-design-btn-icon">🌸</span>
+                  <div class="qr-design-btn-text">
+                    <strong>Soft Tasarım</strong>
+                    <span>Sade, ferah &amp; pastel modern arayüz</span>
+                  </div>
+                </div>
+                <span class="qr-design-badge">Seç &amp; İncele</span>
+              </button>
+              <button
+                type="button"
+                id="btn-admin-modern"
+                class="qr-design-btn"
+                data-design="modern"
+                onclick="switchAdminDesign('modern', this)"
+              >
+                <div class="qr-design-btn-left">
+                  <span class="qr-design-btn-icon">✨</span>
+                  <div class="qr-design-btn-text">
+                    <strong>Modern Tasarım</strong>
+                    <span>Dinamik, şık &amp; yeni nesil görünüm</span>
+                  </div>
+                </div>
+                <span class="qr-design-badge" style="background: var(--pink); color: #fff;">Seç &amp; İncele</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Collapsible Details Area for Admin -->
+          <div class="qr-design-details-area qr-admin-details-area" style="display: none;">
+            <div class="qr-card">
+              <!-- Design Variant 1: Soft Tasarım -->
+              <div id="admin-design-soft" class="qr-card-header qr-admin-design-content">
+                <div class="qr-card-badge badge-primary">
+                  ⭐ ÖNERİLEN PROFESYONEL ÇÖZÜM — SOFT TASARIM
+                </div>
+              <h3 class="qr-card-title">
+                Admin Panelli Profesyonel QR Menü (Soft Tasarım)
+              </h3>
+              <p class="qr-card-desc">
+                Gelişmiş yönetim paneli sayesinde işletme sahibi web sitesindeki
+                görselleri, ürünleri, kategorileri, renk temasını, duyuru
+                yazılarını, alerjen bilgilerini ve Wi-Fi adı/şifresi gibi tüm
+                dinamik alanları anında değiştirebilir. <strong>Soft Tasarım</strong>;
+                ferah, sade ve göz yormayan kart dizilimi ile akıcı bir kullanıcı deneyimi sunar.
+                <strong
+                  >Fiyat güncellemeleri için yazılımcıya ihtiyaç
+                  duymazsınız!</strong
+                >
+              </p>
+              <div class="qr-tags-flex">
+                <span class="qr-tag">⚡ Tam Yönetim Paneli</span>
+                <span class="qr-tag">📱 Mobil & Masaüstü Uyumlu</span>
+                <span class="qr-tag">🌸 Soft & Ferah Arayüz</span>
+                <span class="qr-tag">🏷️ Anında Fiyat Değiştirme</span>
+                <span class="qr-tag">🥜 Alerjen Bilgisi Yönetimi</span>
+                <span class="qr-tag">📶 Wi-Fi Bilgisi Güncelleme</span>
+                <span class="qr-tag">🎨 Özel Tema & Tasarım</span>
+                <span class="qr-tag">🚫 Özel 404 Hata Sayfası Tasarımı</span>
+                <span class="qr-tag">🔒 SSL & Güvenlik Altyapısı</span>
+              </div>
+
+              <!-- Demo Link Buttons for Soft Tasarım -->
+              <div class="qr-demo-links-bar">
+                <a
+                  href="https://qr-menu-seri2.vercel.app/"
+                  target="_blank"
+                  class="qr-demo-btn"
+                >
+                  <span>👁️</span> Soft Menü Demosunu İncele ↗
+                </a>
+                <a
+                  href="https://qr-menu-seri2.onrender.com/yonetim"
+                  target="_blank"
+                  class="qr-demo-btn btn-admin-demo"
+                >
+                  <span>⚙️</span> Yönetim Paneli Demosunu İncele ↗
+                </a>
+                <a
+                  href="https://qr-menu-seri2.vercel.app/404"
+                  target="_blank"
+                  class="qr-demo-btn btn-404-demo"
+                >
+                  <span>🚫</span> 404 Sayfası Demosunu İncele ↗
+                </a>
+              </div>
+              <div class="qr-demo-creds">
+                <span>🔑 <strong>Demo Giriş Bilgileri:</strong></span>
+                <span>Kullanıcı Adı: <code>yonetim</code></span>
+                <span>|</span>
+                <span>Şifre: <code>Yonetim*123</code></span>
+              </div>
+
+              <!-- Design Gallery Showcase for Soft Admin -->
+              <div class="qr-gallery-container" data-gallery-id="admin-soft">
+                <div class="qr-gallery-header">
+                  <div class="qr-gallery-title">
+                    <span>🖼️</span> Soft Tasarım Ekran Görüntüleri &amp; Görsel Vitrini
+                  </div>
+                  <div class="qr-gallery-count">📷 1 / 6</div>
+                </div>
+
+                <div class="qr-gallery-slider-wrap">
+                  <div class="qr-gallery-slides">
+                    <div class="qr-gallery-slide active" data-img-src="../assets/image/qr-menu-thumb.jpg" data-caption="1. Menü Giriş &amp; Kategori Görünümü (Soft Tasarım)" onclick="openQrLightbox('admin-soft', 0, event)">
+                      <img src="../assets/image/qr-menu-thumb.jpg" alt="Menü Giriş Görünümü" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">1. Menü Giriş &amp; Kategori Görünümü (Soft Tasarım)</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/qrmenu1.png" data-caption="2. Ürün Listesi &amp; Fiyat Kartları" onclick="openQrLightbox('admin-soft', 1, event)">
+                      <img src="../assets/image/qrmenu1.png" alt="Ürün Listesi" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">2. Ürün Listesi &amp; Fiyat Kartları</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/cafearoma-thumb.jpg" data-caption="3. Ürün Detay &amp; Alerjen Bilgisi Penceresi" onclick="openQrLightbox('admin-soft', 2, event)">
+                      <img src="../assets/image/cafearoma-thumb.jpg" alt="Ürün Detay" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">3. Ürün Detay &amp; Alerjen Bilgisi Penceresi</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/saas-thumb.jpg" data-caption="4. Admin Yönetim Paneli — Ürün ve Kategori Ekleme" onclick="openQrLightbox('admin-soft', 3, event)">
+                      <img src="../assets/image/saas-thumb.jpg" alt="Yönetim Paneli Ekleme" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">4. Admin Yönetim Paneli — Ürün ve Kategori Ekleme</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/musteri-thumb.jpg" data-caption="5. Admin Yönetim Paneli — Anlık Fiyat Değiştirme" onclick="openQrLightbox('admin-soft', 4, event)">
+                      <img src="../assets/image/musteri-thumb.jpg" alt="Yönetim Paneli Fiyat" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">5. Admin Yönetim Paneli — Anlık Fiyat Değiştirme</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/qrcodegen-thumb.jpg" data-caption="6. Masa QR Kod &amp; Wi-Fi Bilgilendirme Ekranı" onclick="openQrLightbox('admin-soft', 5, event)">
+                      <img src="../assets/image/qrcodegen-thumb.jpg" alt="QR Kod &amp; Wi-Fi" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">6. Masa QR Kod &amp; Wi-Fi Bilgilendirme Ekranı</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Navigation Arrows -->
+                  <button type="button" class="qr-gallery-nav-btn prev" aria-label="Önceki Fotoğraf" onclick="switchQrSlide('admin-soft', 'prev', event)">‹</button>
+                  <button type="button" class="qr-gallery-nav-btn next" aria-label="Sonraki Fotoğraf" onclick="switchQrSlide('admin-soft', 'next', event)">›</button>
+                </div>
+
+                <!-- Thumbnails Strip -->
+                <div class="qr-gallery-thumbs">
+                  <div class="qr-gallery-thumb active" onclick="switchQrSlide('admin-soft', 0, event)">
+                    <img src="../assets/image/qr-menu-thumb.jpg" alt="Küçük Önizleme 1" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('admin-soft', 1, event)">
+                    <img src="../assets/image/qrmenu1.png" alt="Küçük Önizleme 2" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('admin-soft', 2, event)">
+                    <img src="../assets/image/cafearoma-thumb.jpg" alt="Küçük Önizleme 3" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('admin-soft', 3, event)">
+                    <img src="../assets/image/saas-thumb.jpg" alt="Küçük Önizleme 4" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('admin-soft', 4, event)">
+                    <img src="../assets/image/musteri-thumb.jpg" alt="Küçük Önizleme 5" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('admin-soft', 5, event)">
+                    <img src="../assets/image/qrcodegen-thumb.jpg" alt="Küçük Önizleme 6" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Design Variant 2: Modern Tasarım -->
+            <div id="admin-design-modern" class="qr-card-header qr-admin-design-content">
+              <div class="qr-card-badge badge-yellow">
+                🔥 YENİ NESİL ÇÖZÜM — MODERN TASARIM
+              </div>
+              <h3 class="qr-card-title">
+                Admin Panelli Profesyonel QR Menü (Modern Tasarım)
+              </h3>
+              <p class="qr-card-desc">
+                Gelişmiş yönetim paneli ile tam entegre, dinamik görsel geçişler,
+                modern kart yapısı ve yüksek etkileşimli kullanıcı arayüzü sunan
+                <strong>ikinci nesil QR menü tasarımımız</strong>. İleri düzey işletmeler,
+                restoran zincirleri ve prestijli mekanlar için özel olarak geliştirilmiştir.
+                <strong
+                  >Fiyat ve ürünleri anında yönetim panelinizden güncelleyin!</strong
+                >
+              </p>
+              <div class="qr-tags-flex">
+                <span class="qr-tag">⚡ Tam Yönetim Paneli</span>
+                <span class="qr-tag">📱 Mobil &amp; Masaüstü Uyumlu</span>
+                <span class="qr-tag">✨ Modern &amp; Dinamik Arayüz</span>
+                <span class="qr-tag">🏷️ Anında Fiyat Değiştirme</span>
+                <span class="qr-tag">🥜 Alerjen Bilgisi Yönetimi</span>
+                <span class="qr-tag">📶 Wi-Fi Bilgisi Güncelleme</span>
+                <span class="qr-tag">🎨 Özel Tema &amp; Tasarım</span>
+                <span class="qr-tag">🚫 Özel 404 Hata Sayfası Tasarımı</span>
+                <span class="qr-tag">🔒 SSL &amp; Güvenlik Altyapısı</span>
+              </div>
+
+              <!-- Demo Link Buttons for Modern Tasarım -->
+              <div class="qr-demo-links-bar">
+                <a
+                  href="https://qr-menu-seri2.vercel.app/"
+                  target="_blank"
+                  class="qr-demo-btn"
+                >
+                  <span>👁️</span> Modern Menü Demosunu İncele ↗
+                </a>
+                <a
+                  href="https://qr-menu-seri2.onrender.com/yonetim"
+                  target="_blank"
+                  class="qr-demo-btn btn-admin-demo"
+                >
+                  <span>⚙️</span> Yönetim Paneli Demosunu İncele ↗
+                </a>
+                <a
+                  href="https://qr-menu-seri2.vercel.app/404"
+                  target="_blank"
+                  class="qr-demo-btn btn-404-demo"
+                >
+                  <span>🚫</span> 404 Sayfası Demosunu İncele ↗
+                </a>
+              </div>
+              <div class="qr-demo-creds">
+                <span>🔑 <strong>Demo Giriş Bilgileri:</strong></span>
+                <span>Kullanıcı Adı: <code>yonetim</code></span>
+                <span>|</span>
+                <span>Şifre: <code>Yonetim*123</code></span>
+              </div>
+
+              <!-- Design Gallery Showcase for Modern Admin -->
+              <div class="qr-gallery-container" data-gallery-id="admin-modern">
+                <div class="qr-gallery-header">
+                  <div class="qr-gallery-title">
+                    <span>🖼️</span> Modern Tasarım Ekran Görüntüleri &amp; Görsel Vitrini
+                  </div>
+                  <div class="qr-gallery-count">📷 1 / 6</div>
+                </div>
+
+                <div class="qr-gallery-slider-wrap">
+                  <div class="qr-gallery-slides">
+                    <div class="qr-gallery-slide active" data-img-src="../assets/image/cafearoma-thumb.jpg" data-caption="1. Modern Giriş &amp; Hero Karşılama Ekranı (Modern Tasarım)" onclick="openQrLightbox('admin-modern', 0, event)">
+                      <img src="../assets/image/cafearoma-thumb.jpg" alt="Modern Giriş Görünümü" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">1. Modern Giriş &amp; Hero Karşılama Ekranı (Modern Tasarım)</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/qr-menu-thumb.jpg" data-caption="2. Dinamik Ürün Izgarası &amp; Kategori Filtreleme" onclick="openQrLightbox('admin-modern', 1, event)">
+                      <img src="../assets/image/qr-menu-thumb.jpg" alt="Dinamik Ürün Izgarası" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">2. Dinamik Ürün Izgarası &amp; Kategori Filtreleme</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/qrmenu1.png" data-caption="3. Şık Ürün Kartı &amp; Pop-up Detay Görünümü" onclick="openQrLightbox('admin-modern', 2, event)">
+                      <img src="../assets/image/qrmenu1.png" alt="Ürün Kartı Detayı" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">3. Şık Ürün Kartı &amp; Pop-up Detay Görünümü</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/saas-thumb.jpg" data-caption="4. Yönetim Paneli — Tema ve Renk Özelleştirme" onclick="openQrLightbox('admin-modern', 3, event)">
+                      <img src="../assets/image/saas-thumb.jpg" alt="Yönetim Paneli Tema" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">4. Yönetim Paneli — Tema ve Renk Özelleştirme</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/musteri-thumb.jpg" data-caption="5. Yönetim Paneli — Stok &amp; Menü Yönetimi" onclick="openQrLightbox('admin-modern', 4, event)">
+                      <img src="../assets/image/musteri-thumb.jpg" alt="Stok & Menü Yönetimi" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">5. Yönetim Paneli — Stok &amp; Menü Yönetimi</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/sinavsayac-thumb.jpg" data-caption="6. Özel 404 Hata Sayfası Tasarımı" onclick="openQrLightbox('admin-modern', 5, event)">
+                      <img src="../assets/image/sinavsayac-thumb.jpg" alt="404 Sayfası" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">6. Özel 404 Hata Sayfası Tasarımı</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Navigation Arrows -->
+                  <button type="button" class="qr-gallery-nav-btn prev" aria-label="Önceki Fotoğraf" onclick="switchQrSlide('admin-modern', 'prev', event)">‹</button>
+                  <button type="button" class="qr-gallery-nav-btn next" aria-label="Sonraki Fotoğraf" onclick="switchQrSlide('admin-modern', 'next', event)">›</button>
+                </div>
+
+                <!-- Thumbnails Strip -->
+                <div class="qr-gallery-thumbs">
+                  <div class="qr-gallery-thumb active" onclick="switchQrSlide('admin-modern', 0, event)">
+                    <img src="../assets/image/cafearoma-thumb.jpg" alt="Küçük Önizleme 1" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('admin-modern', 1, event)">
+                    <img src="../assets/image/qr-menu-thumb.jpg" alt="Küçük Önizleme 2" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('admin-modern', 2, event)">
+                    <img src="../assets/image/qrmenu1.png" alt="Küçük Önizleme 3" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('admin-modern', 3, event)">
+                    <img src="../assets/image/saas-thumb.jpg" alt="Küçük Önizleme 4" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('admin-modern', 4, event)">
+                    <img src="../assets/image/musteri-thumb.jpg" alt="Küçük Önizleme 5" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('admin-modern', 5, event)">
+                    <img src="../assets/image/sinavsayac-thumb.jpg" alt="Küçük Önizleme 6" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tables Grid -->
+            <div class="qr-pricing-block">
+              <!-- Table 1: Monthly Packages -->
+              <div class="qr-table-card">
+                <div class="table-card-title">
+                  <span>📱</span> Aylık Abonelik Paketleri (Sözleşmeli)
+                </div>
+                <div class="table-responsive">
+                  <table class="qr-table">
+                    <thead>
+                      <tr>
+                        <th>Sözleşme Paketi</th>
+                        <th>Abonelik Bedeli</th>
+                        <th>Bakım & Güvenlik</th>
+                        <th>Toplam Ödeme</th>
+                        <th>Öne Çıkan</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>6 Ay Sözleşmeli</strong></td>
+                        <td>800 TL × 6 = 4.800 TL</td>
+                        <td>
+                          <span class="badge-free">Dahil / Ek bakım yok</span>
+                        </td>
+                        <td><span class="price-highlight">4.800 TL</span></td>
+                        <td>Standart Başlangıç</td>
+                      </tr>
+                      <tr class="recommended-row">
+                        <td>
+                          <strong>12 Ay Sözleşmeli</strong>
+                          <span class="row-pop">Popüler</span>
+                        </td>
+                        <td>750 TL × 12 = 9.000 TL</td>
+                        <td>1 × 2.000 TL (Zorunlu)</td>
+                        <td><span class="price-highlight">11.000 TL</span></td>
+                        <td>Aylık 750 TL Avantajı</td>
+                      </tr>
+                      <tr>
+                        <td><strong>24 Ay Sözleşmeli</strong></td>
+                        <td>700 TL × 24 = 16.800 TL</td>
+                        <td>3 × 2.000 TL (Zorunlu)</td>
+                        <td><span class="price-highlight">22.800 TL</span></td>
+                        <td>En Düşük Aylık Oran</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="table-note">
+                  <strong>📌 Not:</strong> 12 ve 24 aylık abonelik paketlerinde
+                  altı ayda bir gerçekleştirilen <strong>2.000 TL</strong> bakım
+                  ve güvenlik hizmeti zorunludur.
+                </div>
+              </div>
+
+              <!-- Table 2: Prepaid Cash Packages -->
+              <div class="qr-table-card">
+                <div class="table-card-title">
+                  <span>💰</span> Peşin Ödeme Paketleri
+                </div>
+                <div class="table-responsive">
+                  <table class="qr-table">
+                    <thead>
+                      <tr>
+                        <th>Peşin Paket</th>
+                        <th>Abonelik Bedeli</th>
+                        <th>Bakım & Güvenlik</th>
+                        <th>Toplam Ödeme</th>
+                        <th>Avantaj</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>1 Yıl Peşin</strong></td>
+                        <td>8.000 TL</td>
+                        <td>1 × 2.000 TL (Zorunlu)</td>
+                        <td><span class="price-highlight">10.000 TL</span></td>
+                        <td>Tek Çekim Fırsat</td>
+                      </tr>
+                      <tr class="recommended-row">
+                        <td>
+                          <strong>2 Yıl Peşin</strong>
+                          <span class="row-pop">En İyi Fiyat</span>
+                        </td>
+                        <td>15.000 TL</td>
+                        <td>3 × 2.000 TL (Zorunlu)</td>
+                        <td><span class="price-highlight">21.000 TL</span></td>
+                        <td>Maksimum Tasarruf</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="table-note">
+                  <strong>📌 Not:</strong> 1 ve 2 yıllık peşin ödeme
+                  paketlerinde altı ayda bir gerçekleştirilen
+                  <strong>2.000 TL</strong> bakım ve güvenlik hizmeti
+                  zorunludur.
+                </div>
+              </div>
+
+              <!-- Purchase & Ownership Box -->
+              <div class="qr-purchase-banner">
+                <div class="purchase-info">
+                  <div class="purchase-tag">🛒 LİSANSLI SATIN ALIM PAKETİ</div>
+                  <h4 class="purchase-title">
+                    27.500 TL <span>Tek Seferlik Ödeme</span>
+                  </h4>
+                  <ul class="purchase-list">
+                    <li>Sınırsız kullanım hakkı & Lisanslı satın alma hakkı</li>
+                    <li>Profesyonel QR Menü sistemi altyapısı</li>
+                    <li>Tam Yetkili Profesyonel Admin Paneli</li>
+                    <li>Özel 404 Hata Sayfası Tasarımı Dahil</li>
+                    <li>İşletmeye özel kullanım lisansı</li>
+                  </ul>
+                </div>
+                <div class="purchase-terms">
+                  <div class="term-item">
+                    <strong>🔄 Periyodik Hizmetler:</strong>
+                    <span
+                      >6 ayda bir site bakım ve güvenlik hizmeti:
+                      <strong>2.500 TL</strong></span
+                    >
+                  </div>
+                  <div class="term-item">
+                    <strong>🌐 Domain & Hosting:</strong>
+                    <span
+                      >Domain ve hosting maliyetleri müşteriye aittir. Ancak
+                      sisteminizin kesintisiz, yüksek hızlı ve sorunsuz
+                      çalışması amacıyla barındırma altyapısı tarafımızca
+                      onaylanmış yüksek kaliteli kurumsal sunucu sağlayıcımız
+                      üzerinden temin edilir ve yönetilir.</span
+                    >
+                  </div>
+                  <a
+                    href="https://wa.me/905424786254?text=Merhaba,%20Admin%20Panelli%20Soft%20Tasarım%20Lisanslı%20QR%20Menü%20Satın%20Alım%20Paketi%20(27.500%20TL)%20hakkında%20görüşmek%20istiyorum."
+                    target="_blank"
+                    class="purchase-btn admin-purchase-btn"
+                  >
+                    Admin Panelli (Soft Tasarım) Paketi Seç & İletişime Geç →
+                  </a>
+                </div>
+              </div>
+
+              <!-- Extra Services -->
+              <div class="qr-extra-box">
+                <div class="extra-head">
+                  <span>📍 Ek Hizmetler:</span>
+                  <strong>Google İşletme Kaydı ve İlk Kurulum:</strong> Tek
+                  seferlik <span class="highlight-price">1.500 TL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- Region 2: Statik QR Menü -->
+        <div id="qr-tab-static-menu" class="qr-tab-panel" data-tab="static-menu">
+          <!-- Sub-Design Switcher Buttons for Statik -->
+          <div class="qr-design-switcher-box">
+            <div class="qr-design-switcher-header">
+              <span class="qr-design-title">🎨 Statik Menü Tasarım Seçenekleri:</span>
+              <span class="qr-design-hint">İncelemek istediğiniz tasarıma tıklayın (kapatmak için tekrar tıklayın)</span>
+            </div>
+            <div class="qr-design-buttons">
+              <button
+                type="button"
+                id="btn-static-soft"
+                class="qr-design-btn qr-static-design-btn"
+                data-design="soft"
+                onclick="switchStaticDesign('soft', this)"
+              >
+                <div class="qr-design-btn-left">
+                  <span class="qr-design-btn-icon">🌸</span>
+                  <div class="qr-design-btn-text">
+                    <strong>Soft Tasarım</strong>
+                    <span>Sade, ferah &amp; ultra hızlı arayüz</span>
+                  </div>
+                </div>
+                <span class="qr-design-badge">Seç &amp; İncele</span>
+              </button>
+              <button
+                type="button"
+                id="btn-static-modern"
+                class="qr-design-btn qr-static-design-btn"
+                data-design="modern"
+                onclick="switchStaticDesign('modern', this)"
+              >
+                <div class="qr-design-btn-left">
+                  <span class="qr-design-btn-icon">✨</span>
+                  <div class="qr-design-btn-text">
+                    <strong>Modern Tasarım</strong>
+                    <span>Dinamik, şık &amp; yeni nesil görünüm</span>
+                  </div>
+                </div>
+                <span class="qr-design-badge" style="background: var(--pink); color: #fff;">Seç &amp; İncele</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Collapsible Details Area for Static -->
+          <div class="qr-design-details-area qr-static-details-area" style="display: none;">
+            <div class="qr-card">
+              <!-- Static Design Variant 1: Soft Tasarım -->
+              <div id="static-design-soft" class="qr-card-header qr-static-design-content">
+                <div class="qr-card-badge badge-accent">
+                  ⚡ EKONOMİK &amp; MİNİMALİST ÇÖZÜM — SOFT TASARIM
+                </div>
+              <h3 class="qr-card-title">Statik QR Menü Sitesi (Soft Tasarım)</h3>
+              <p class="qr-card-desc">
+                İçinde admin paneli, veritabanı veya karmaşık sunucu sistemleri
+                bulunmayan; menü verilerinin doğrudan kod içerisindeki sabit
+                formatta tutulduğu
+                <strong>tamamen bütçe dostu, ultra hızlı ve ferah soft tasarımlı</strong>
+                menü sitesi. Müşterileriniz QR kodu okutarak minimal, sade ve
+                göz yormayan akıcı arayüze anında erişir.
+              </p>
+              <div class="qr-tags-flex">
+                <span class="qr-tag">🚀 Ultra Hızlı Yükleme</span>
+                <span class="qr-tag">📱 Mobil &amp; Bilgisayar Uyumlu</span>
+                <span class="qr-tag">🌸 Soft &amp; Sade Arayüz</span>
+                <span class="qr-tag">💵 Bütçe Dostu Maliyet</span>
+                <span class="qr-tag">🚫 Özel 404 Hata Sayfası Tasarımı</span>
+                <span class="qr-tag">🔒 Sıfır Sunucu &amp; Güvenlik Riski</span>
+                <span class="qr-tag">📲 QR Kod Okut &amp; Anında İncele</span>
+              </div>
+
+              <!-- Demo Link Buttons for Statik Soft -->
+              <div class="qr-demo-links-bar">
+                <a
+                  href="https://muhammed-ali-ktr.github.io/QR-Menu-Statik-1/"
+                  target="_blank"
+                  class="qr-demo-btn"
+                >
+                  <span>👁️</span> Soft Statik Menü Demosunu İncele ↗
+                </a>
+                <a
+                  href="https://qr-menu-nsoi.vercel.app/404"
+                  target="_blank"
+                  class="qr-demo-btn btn-404-demo"
+                >
+                  <span>🚫</span> 404 Sayfası Demosunu İncele ↗
+                </a>
+              </div>
+
+              <!-- Design Gallery Showcase for Soft Static -->
+              <div class="qr-gallery-container" data-gallery-id="static-soft">
+                <div class="qr-gallery-header">
+                  <div class="qr-gallery-title">
+                    <span>🖼️</span> Soft Tasarım Ekran Görüntüleri &amp; Görsel Vitrini
+                  </div>
+                  <div class="qr-gallery-count">📷 1 / 5</div>
+                </div>
+
+                <div class="qr-gallery-slider-wrap">
+                  <div class="qr-gallery-slides">
+                    <div class="qr-gallery-slide active" data-img-src="../assets/image/qr-menu-thumb.jpg" data-caption="1. Soft Statik Menü Ana Sayfası (Ferah &amp; Hızlı)" onclick="openQrLightbox('static-soft', 0, event)">
+                      <img src="../assets/image/qr-menu-thumb.jpg" alt="Soft Statik Menü" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">1. Soft Statik Menü Ana Sayfası (Ferah &amp; Hızlı)</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/qrmenu1.png" data-caption="2. Sade Ürün Listeleme &amp; Fiyat Alanları" onclick="openQrLightbox('static-soft', 1, event)">
+                      <img src="../assets/image/qrmenu1.png" alt="Ürün Listesi" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">2. Sade Ürün Listeleme &amp; Fiyat Alanları</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/cafearoma-thumb.jpg" data-caption="3. Kategori Butonları &amp; Akıcı Menü Akışı" onclick="openQrLightbox('static-soft', 2, event)">
+                      <img src="../assets/image/cafearoma-thumb.jpg" alt="Kategori Akışı" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">3. Kategori Butonları &amp; Akıcı Menü Akışı</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/qrcodegen-thumb.jpg" data-caption="4. Mobil Uyumlu Temassız Menü Görünümü" onclick="openQrLightbox('static-soft', 3, event)">
+                      <img src="../assets/image/qrcodegen-thumb.jpg" alt="Temassız Menü" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">4. Mobil Uyumlu Temassız Menü Görünümü</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/saas-thumb.jpg" data-caption="5. Özel 404 Hata Sayfası Tasarımı" onclick="openQrLightbox('static-soft', 4, event)">
+                      <img src="../assets/image/saas-thumb.jpg" alt="404 Sayfası" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">5. Özel 404 Hata Sayfası Tasarımı</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Navigation Arrows -->
+                  <button type="button" class="qr-gallery-nav-btn prev" aria-label="Önceki Fotoğraf" onclick="switchQrSlide('static-soft', 'prev', event)">‹</button>
+                  <button type="button" class="qr-gallery-nav-btn next" aria-label="Sonraki Fotoğraf" onclick="switchQrSlide('static-soft', 'next', event)">›</button>
+                </div>
+
+                <!-- Thumbnails Strip -->
+                <div class="qr-gallery-thumbs">
+                  <div class="qr-gallery-thumb active" onclick="switchQrSlide('static-soft', 0, event)">
+                    <img src="../assets/image/qr-menu-thumb.jpg" alt="Küçük Önizleme 1" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('static-soft', 1, event)">
+                    <img src="../assets/image/qrmenu1.png" alt="Küçük Önizleme 2" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('static-soft', 2, event)">
+                    <img src="../assets/image/cafearoma-thumb.jpg" alt="Küçük Önizleme 3" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('static-soft', 3, event)">
+                    <img src="../assets/image/qrcodegen-thumb.jpg" alt="Küçük Önizleme 4" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('static-soft', 4, event)">
+                    <img src="../assets/image/saas-thumb.jpg" alt="Küçük Önizleme 5" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Static Design Variant 2: Modern Tasarım -->
+            <div id="static-design-modern" class="qr-card-header qr-static-design-content">
+              <div class="qr-card-badge badge-yellow">
+                🔥 YENİ NESİL EKONOMİK ÇÖZÜM — MODERN TASARIM
+              </div>
+              <h3 class="qr-card-title">Statik QR Menü Sitesi (Modern Tasarım)</h3>
+              <p class="qr-card-desc">
+                Statik altyapının sunduğu ışık hızındaki açılış performansı ve sıfır
+                sunucu masrafını; dinamik modern çizgiler, şık görsel blokları ve
+                etkileşimli yeni nesil arayüz ile buluşturan
+                <strong>ikinci statik QR menü tasarımımız</strong>.
+              </p>
+              <div class="qr-tags-flex">
+                <span class="qr-tag">🚀 Ultra Hızlı Yükleme</span>
+                <span class="qr-tag">📱 Mobil &amp; Bilgisayar Uyumlu</span>
+                <span class="qr-tag">✨ Modern &amp; Dinamik Arayüz</span>
+                <span class="qr-tag">💵 Bütçe Dostu Maliyet</span>
+                <span class="qr-tag">🚫 Özel 404 Hata Sayfası Tasarımı</span>
+                <span class="qr-tag">🔒 Sıfır Sunucu &amp; Güvenlik Riski</span>
+                <span class="qr-tag">📲 QR Kod Okut &amp; Anında İncele</span>
+              </div>
+
+              <!-- Demo Link Buttons for Statik Modern -->
+              <div class="qr-demo-links-bar">
+                <a
+                  href="https://muhammed-ali-ktr.github.io/QR-Menu-Statik-1/"
+                  target="_blank"
+                  class="qr-demo-btn"
+                >
+                  <span>👁️</span> Modern Statik Menü Demosunu İncele ↗
+                </a>
+                <a
+                  href="https://qr-menu-nsoi.vercel.app/404"
+                  target="_blank"
+                  class="qr-demo-btn btn-404-demo"
+                >
+                  <span>🚫</span> 404 Sayfası Demosunu İncele ↗
+                </a>
+              </div>
+
+              <!-- Design Gallery Showcase for Modern Static -->
+              <div class="qr-gallery-container" data-gallery-id="static-modern">
+                <div class="qr-gallery-header">
+                  <div class="qr-gallery-title">
+                    <span>🖼️</span> Modern Tasarım Ekran Görüntüleri &amp; Görsel Vitrini
+                  </div>
+                  <div class="qr-gallery-count">📷 1 / 5</div>
+                </div>
+
+                <div class="qr-gallery-slider-wrap">
+                  <div class="qr-gallery-slides">
+                    <div class="qr-gallery-slide active" data-img-src="../assets/image/cafearoma-thumb.jpg" data-caption="1. Modern Statik Menü Karşılama Ekranı" onclick="openQrLightbox('static-modern', 0, event)">
+                      <img src="../assets/image/cafearoma-thumb.jpg" alt="Modern Statik Menü" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">1. Modern Statik Menü Karşılama Ekranı</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/qr-menu-thumb.jpg" data-caption="2. Dinamik Kategori Kartları &amp; Modern Tipografi" onclick="openQrLightbox('static-modern', 1, event)">
+                      <img src="../assets/image/qr-menu-thumb.jpg" alt="Kategori Kartları" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">2. Dinamik Kategori Kartları &amp; Modern Tipografi</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/qrmenu1.png" data-caption="3. Koyu/Aydınlık Kontrastlı Ürün Vitrini" onclick="openQrLightbox('static-modern', 2, event)">
+                      <img src="../assets/image/qrmenu1.png" alt="Ürün Vitrini" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">3. Koyu/Aydınlık Kontrastlı Ürün Vitrini</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/musteri-thumb.jpg" data-caption="4. Ultra Hızlı Mobil Arayüz Deneyimi" onclick="openQrLightbox('static-modern', 3, event)">
+                      <img src="../assets/image/musteri-thumb.jpg" alt="Hızlı Mobil Deneyim" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">4. Ultra Hızlı Mobil Arayüz Deneyimi</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                    <div class="qr-gallery-slide" data-img-src="../assets/image/sinavsayac-thumb.jpg" data-caption="5. Özel 404 Hata Sayfası Tasarımı" onclick="openQrLightbox('static-modern', 4, event)">
+                      <img src="../assets/image/sinavsayac-thumb.jpg" alt="404 Sayfası" loading="lazy" />
+                      <div class="qr-gallery-caption">
+                        <span class="qr-gallery-caption-text">5. Özel 404 Hata Sayfası Tasarımı</span>
+                        <span class="qr-gallery-zoom-hint">🔍 Büyütmek için tıkla</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Navigation Arrows -->
+                  <button type="button" class="qr-gallery-nav-btn prev" aria-label="Önceki Fotoğraf" onclick="switchQrSlide('static-modern', 'prev', event)">‹</button>
+                  <button type="button" class="qr-gallery-nav-btn next" aria-label="Sonraki Fotoğraf" onclick="switchQrSlide('static-modern', 'next', event)">›</button>
+                </div>
+
+                <!-- Thumbnails Strip -->
+                <div class="qr-gallery-thumbs">
+                  <div class="qr-gallery-thumb active" onclick="switchQrSlide('static-modern', 0, event)">
+                    <img src="../assets/image/cafearoma-thumb.jpg" alt="Küçük Önizleme 1" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('static-modern', 1, event)">
+                    <img src="../assets/image/qr-menu-thumb.jpg" alt="Küçük Önizleme 2" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('static-modern', 2, event)">
+                    <img src="../assets/image/qrmenu1.png" alt="Küçük Önizleme 3" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('static-modern', 3, event)">
+                    <img src="../assets/image/musteri-thumb.jpg" alt="Küçük Önizleme 4" />
+                  </div>
+                  <div class="qr-gallery-thumb" onclick="switchQrSlide('static-modern', 4, event)">
+                    <img src="../assets/image/sinavsayac-thumb.jpg" alt="Küçük Önizleme 5" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Static Menu Pricing Block -->
+            <div class="qr-pricing-block">
+              <!-- Table: Models -->
+              <div class="qr-table-card">
+                <div class="table-card-title">
+                  <span>📅</span> Statik Menü Abonelik & Kurulum Modelleri
+                </div>
+                <div class="table-responsive">
+                  <table class="qr-table">
+                    <thead>
+                      <tr>
+                        <th>Model Tipi</th>
+                        <th>Ödeme Planı</th>
+                        <th>Bakım & Güncelleme</th>
+                        <th>Domain & Hosting</th>
+                        <th>Detay</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>1. Model (Yıllık Abonelik)</strong></td>
+                        <td>
+                          <strong>6.500 TL / Yıl</strong><br />
+                          <small style="color: var(--pink); font-weight: 700"
+                            >(2 Yıllık Sözleşmeyle Yıllık 6.000 TL → Toplam
+                            12.000 TL)</small
+                          >
+                        </td>
+                        <td>6 ayda bir zorunlu 1.500 TL güncelleme dahildir</td>
+                        <td><span class="badge-free">Dahil</span></td>
+                        <td>Her şey dahil yıllık pakettir.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>2. Model (Kurulum + Yenileme)</strong></td>
+                        <td>
+                          <strong>12.500 TL</strong><br />
+                          <small>(İlk Yıl Kurulum Ücreti)</small>
+                        </td>
+                        <td>
+                          Sonraki yıllar: 2.000 TL Bakım Bedeli + (6 ayda bir
+                          1.500 TL Güncelleme)
+                        </td>
+                        <td>Hosting ve Domain Yenileme Eklenir</td>
+                        <td>İlk yıl satış sonrakiler yenileme modelidir.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="table-note">
+                  <strong>📌 Güncelleme Bilgisi:</strong> Statik menüde içerik
+                  değişiklikleri doğrudan kod düzeyinde güncellendiği için 6
+                  ayda bir yapılan güncellemelerle menünüz sürekli taze tutulur.
+                </div>
+              </div>
+
+              <!-- Purchase & Ownership Box -->
+              <div class="qr-purchase-banner banner-static">
+                <div class="purchase-info">
+                  <div class="purchase-tag">🛒 LİSANSLI SATIN ALIM PAKETİ</div>
+                  <h4 class="purchase-title">
+                    12.500 TL <span>Tek Seferlik Ödeme</span>
+                  </h4>
+                  <ul class="purchase-list">
+                    <li>Tek seferlik lisanslı satın alma bedeli: 12.500 TL</li>
+                    <li>Sınırsız kullanım hakkı & Statik QR Menü altyapısı</li>
+                    <li>Özel 404 Hata Sayfası Tasarımı Dahil</li>
+                    <li>İşletmeye özel kullanım lisansı</li>
+                  </ul>
+                </div>
+                <div class="purchase-terms">
+                  <div class="term-item">
+                    <strong>🔄 Periyodik Hizmetler:</strong>
+                    <span
+                      >6 ayda bir site bakım ve güvenlik hizmeti:
+                      <strong>2.500 TL</strong></span
+                    >
+                  </div>
+                  <div class="term-item">
+                    <strong>🌐 Domain & Hosting:</strong>
+                    <span
+                      >Domain ve hosting maliyetleri müşteriye aittir. Ancak
+                      sisteminizin kesintisiz, yüksek hızlı ve sorunsuz
+                      çalışması amacıyla barındırma altyapısı tarafımızca
+                      onaylanmış yüksek kaliteli kurumsal sunucu sağlayıcımız
+                      üzerinden temin edilir ve yönetilir.</span
+                    >
+                  </div>
+                  <a
+                    href="https://wa.me/905424786254?text=Merhaba,%20Statik%20Soft%20Tasarım%20Lisanslı%20QR%20Menü%20Satın%20Alım%20Paketi%20(12.500%20TL)%20hakkında%20bilgi%20almak%20istiyorum."
+                    target="_blank"
+                    class="purchase-btn static-purchase-btn"
+                  >
+                    Statik Menü (Soft Tasarım) Paketini Seç & İletişime Geç →
+                  </a>
+                </div>
+              </div>
+
+              <!-- Extra Services -->
+              <div class="qr-extra-box">
+                <div class="extra-head">
+                  <span>📍 Ek Hizmetler:</span>
+                  <strong>Google İşletme Kaydı ve İlk Kurulum:</strong> Tek
+                  seferlik <span class="highlight-price">1.500 TL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- Region 3: Detailed Comparison Matrix -->
+        <div id="qr-tab-comparison" class="qr-tab-panel" data-tab="comparison">
+          <div class="qr-card">
+            <div class="qr-card-header">
+              <div class="qr-card-badge badge-yellow">
+                📊 KARŞILAŞTIRMA MATRİSİ
+              </div>
+              <h3 class="qr-card-title">
+                Hangi QR Menü Yazılımı İşletmenize Uygun?
+              </h3>
+              <p class="qr-card-desc">
+                İhtiyaçlarınıza göre en doğru kararı vermeniz için Admin Panelli
+                ve Statik QR Menü sistemlerimizin özellik karşılaştırması
+                aşağıda özetlenmiştir.
+              </p>
+            </div>
+
+            <div class="table-responsive">
+              <table class="qr-table qr-table-compare">
+                <thead>
+                  <tr>
+                    <th>Özellik / Kriter</th>
+                    <th>⚡ Admin Panelli QR Menü</th>
+                    <th>🚀 Statik QR Menü</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Admin Yönetim Paneli</strong></td>
+                    <td>
+                      <span class="status-yes"
+                        >✔ Var (Gelişmiş Türkçe Panel)</span
+                      >
+                    </td>
+                    <td>
+                      <span class="status-no"
+                        >✖ Yok (Doğrudan Kod Yapısı)</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fiyat Değiştirme Yetkisi</strong></td>
+                    <td>
+                      <span class="status-yes"
+                        >✔ İşletme Sahibi Kendisi Anında Değiştirir</span
+                      >
+                    </td>
+                    <td><span>Periyodik Güncelleme ile Değişir</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Ürün / Görsel / Kategori Ekleme</strong></td>
+                    <td><span class="status-yes">✔ Sınırsız & Anlık</span></td>
+                    <td><span>Sabit Kod Formatı</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Alerjen Bilgisi & Wi-Fi Düzenleme</strong></td>
+                    <td>
+                      <span class="status-yes"
+                        >✔ Panel Üzerinden Tek Tıkla</span
+                      >
+                    </td>
+                    <td><span>Talep Üzerine Eklenir</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Özel 404 Hata Sayfası Tasarımı</strong></td>
+                    <td>
+                      <span class="status-yes">✔ Var (Özel Tasarım)</span>
+                    </td>
+                    <td>
+                      <span class="status-yes">✔ Var (Özel Tasarım)</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Canlı Ürün & Yönetim Demosu</strong></td>
+                    <td>
+                      <span class="status-yes"
+                        >✔ Menü + Admin Demosu Mevcut</span
+                      >
+                    </td>
+                    <td>
+                      <span class="status-yes">✔ Menü Demosu Mevcut</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Açılış Hızı & Performans</strong></td>
+                    <td><span>Yüksek (Optimize Veritabanı)</span></td>
+                    <td>
+                      <span class="status-yes"
+                        >⚡ Ultra Hızlı (Sıfır Gecikme)</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Aylık Abonelik Seçenekleri</strong></td>
+                    <td><span>800 TL / 750 TL / 700 TL (Sözleşmeli)</span></td>
+                    <td><span>Yıllık 6.500 TL (6.000 TL 2 Yıllık)</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Lisanslı Satın Alım Bedeli</strong></td>
+                    <td><span>27.500 TL (Tek Seferlik)</span></td>
+                    <td>
+                      <span class="price-highlight"
+                        >12.500 TL (Tek Seferlik)</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Hosting & Domain Hizmeti</strong></td>
+                    <td>
+                      <span>Müşteriye Ait (Tarafımızca Yönetilebilir)</span>
+                    </td>
+                    <td>
+                      <span>1. Modelde Dahil / 2. Modelde Müşteriye Ait</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-note" style="margin-top: 1.5rem">
+              <strong>💡 Hosting & Altyapı Güvencesi Notumuz:</strong> Menü
+              sitelerinizin kesintisiz, yüksek hızlı ve güvenli çalışması ilk
+              önceliğimizdir. Piyasadaki ucuz ve kalitesiz hosting
+              sağlayıcılarında sıkça yaşanan yavaşlama, çökme ve erişim
+              kesintisi sorunlarını engellemek adına tüm yayınlama ve barındırma
+              işlemleri tarafımızca özel olarak seçilen yüksek kaliteli kurumsal
+              sunucu altyapımız üzerinden yürütülmektedir.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-copy">
+          © 2025 ZiftStudio Digital. Tüm hakları saklıdır.
+        </div>
+        <ul class="footer-links">
+          <li><a href="gizlilik.html">Gizlilik</a></li>
+          <li><a href="../index.html#contact">İletişim</a></li>
+          <li>
+            <a
+              href="terminal.html"
+              class="footer-terminal-link"
+              title="ZiftStudio Geliştirici Konsolu"
+              >>_</a
+            >
+          </li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- Lightbox Modal for QR Galleries -->
+    <div id="qrLightboxOverlay" class="qr-lightbox-overlay" onclick="closeQrLightbox(event)">
+      <div class="qr-lightbox-box">
+        <button class="qr-lightbox-close" onclick="closeQrLightbox(event)" aria-label="Kapat">✕</button>
+        <div class="qr-lightbox-image-wrap">
+          <img id="qrLightboxImg" src="" alt="Büyütülmüş QR Menü Tasarım Görseli" />
+          <button type="button" class="qr-lightbox-arrow prev" onclick="navQrLightbox('prev', event)" aria-label="Önceki Görsel">‹</button>
+          <button type="button" class="qr-lightbox-arrow next" onclick="navQrLightbox('next', event)" aria-label="Sonraki Görsel">›</button>
+        </div>
+        <div class="qr-lightbox-caption">
+          <div id="qrLightboxTitle" class="qr-lightbox-title">Tasarım Görseli</div>
+          <div id="qrLightboxCounter" class="qr-lightbox-counter">1 / 6</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../JS/script.js" defer></script>
+  </body>
+</html>
