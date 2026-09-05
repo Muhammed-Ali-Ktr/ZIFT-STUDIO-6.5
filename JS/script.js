@@ -794,6 +794,58 @@ function closeQrLightbox(event) {
   if (lightbox) lightbox.classList.remove('open');
 }
 
+// Blog Post Lightbox Initialization
+function initBlogLightbox() {
+  const articleCards = document.querySelectorAll('.article-card');
+  if (!articleCards.length) return;
+
+  articleCards.forEach((card, cardIdx) => {
+    const galleryId = `blog-post-${cardIdx}`;
+    const slides = [];
+
+    // 1. Cover image
+    const coverWrap = card.querySelector('.article-cover-wrap');
+    if (coverWrap) {
+      const coverImg = coverWrap.querySelector('img');
+      const captionText = coverWrap.querySelector('.article-cover-caption span')?.innerText || coverImg?.alt || 'Proje Görseli';
+      if (coverImg && coverImg.src) {
+        slides.push({
+          src: coverImg.src,
+          caption: captionText
+        });
+        const slideIdx = slides.length - 1;
+        coverWrap.addEventListener('click', (e) => {
+          openQrLightbox(galleryId, slideIdx, e);
+        });
+      }
+    }
+
+    // 2. Gallery images inside the post
+    const galleryItems = card.querySelectorAll('.article-gallery-item');
+    galleryItems.forEach(item => {
+      const img = item.querySelector('img');
+      const labelText = item.querySelector('.article-gallery-label')?.innerText || img?.alt || 'Ekran Görüntüsü';
+      if (img && img.src) {
+        slides.push({
+          src: img.src,
+          caption: labelText
+        });
+        const slideIdx = slides.length - 1;
+        item.addEventListener('click', (e) => {
+          openQrLightbox(galleryId, slideIdx, e);
+        });
+      }
+    });
+
+    if (slides.length) {
+      qrGalleryState.galleries[galleryId] = {
+        index: 0,
+        slides: slides
+      };
+    }
+  });
+}
+
 // Initialize components on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
@@ -802,6 +854,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initConsentOverlay();
   initScrollReveals();
   initBlogExpansion();
+  initBlogLightbox();
   initQrGalleries();
   setupCursorHovers();
   

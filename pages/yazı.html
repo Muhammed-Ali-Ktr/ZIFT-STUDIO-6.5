@@ -718,6 +718,24 @@
       </div>
     </section>
 
+    <!-- Lightbox Modal for Blog Galleries & Images -->
+    <div id="qrLightboxOverlay" class="qr-lightbox-overlay" onclick="closeQrLightbox(event)">
+      <div class="qr-lightbox-box">
+        <button class="qr-lightbox-close" onclick="closeQrLightbox(event)" aria-label="Kapat">✕</button>
+        <div class="qr-lightbox-image-wrap">
+          <img id="qrLightboxImg" src="" alt="Büyütülmüş Blog Proje Görseli" />
+          <button type="button" class="qr-lightbox-arrow prev" onclick="navQrLightbox('prev', event)"
+            aria-label="Önceki Görsel">‹</button>
+          <button type="button" class="qr-lightbox-arrow next" onclick="navQrLightbox('next', event)"
+            aria-label="Sonraki Görsel">›</button>
+        </div>
+        <div class="qr-lightbox-caption">
+          <div id="qrLightboxTitle" class="qr-lightbox-title">Proje Görseli</div>
+          <div id="qrLightboxCounter" class="qr-lightbox-counter">1 / 1</div>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer Section -->
     <footer>
       <div class="footer-copy">© 2025 ZiftStudio Digital. Tüm hakları saklıdır.</div>
